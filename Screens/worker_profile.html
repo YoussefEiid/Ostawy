@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ملف العامل - أوستاوي</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#292c2e",
+                        "on-primary-container": "#8293ba",
+                        "surface": "#f8f9ff",
+                        "on-error": "#ffffff",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#fd7613",
+                        "on-background": "#0b1c30",
+                        "secondary-fixed": "#ffdbca",
+                        "tertiary": "#14181a",
+                        "primary-container": "#1a2b4c",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-dim": "#cbdbf5",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#d3e4fe",
+                        "background": "#f8f9ff",
+                        "primary": "#031636",
+                        "secondary": "#9c4400",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#ffb68f",
+                        "surface-tint": "#4e5e82",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-fixed": "#191c1e",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "primary-fixed-dim": "#b6c6f0",
+                        "on-secondary-container": "#5b2500",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#b6c6f0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#75777f",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "on-tertiary-container": "#909396",
+                        "on-surface-variant": "#44474e",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed-variant": "#773200",
+                        "on-primary-fixed-variant": "#364669",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c5c6cf",
+                        "on-surface": "#0b1c30",
+                        "on-secondary-fixed": "#331200",
+                        "on-primary-fixed": "#071b3b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "xl": "32px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "md": "16px",
+                        "2xl": "48px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Noto Sans Arabic", "Manrope"],
+                        "body-md": ["Noto Sans Arabic", "Manrope"],
+                        "label-md": ["Noto Sans Arabic", "Manrope"],
+                        "body-sm": ["Noto Sans Arabic", "Manrope"],
+                        "label-sm": ["Noto Sans Arabic", "Manrope"],
+                        "body-lg": ["Noto Sans Arabic", "Manrope"],
+                        "headline-md": ["Noto Sans Arabic", "Manrope"],
+                        "headline-lg": ["Noto Sans Arabic", "Manrope"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { font-family: 'Noto Sans Arabic', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-4 md:px-12 h-16 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-8">
+<a href="home_page.html">
+<span class="text-2xl font-black tracking-tighter text-slate-900 dark:text-white">أوستاوي</span>
+    
+</a>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-semibold tracking-tight text-blue-900 dark:text-blue-400 border-b-2 border-blue-900 dark:border-blue-400 pb-1" href="#">البحث عن محترفين</a>
+<a class="text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200" href="#">كيف يعمل</a>
+<a class="text-sm font-semibold tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200" href="#">كن شريكاً</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 text-sm font-semibold tracking-tight text-slate-900 dark:text-slate-50 transition-colors hover:bg-slate-50 dark:hover:bg-slate-800">تسجيل الدخول</button>
+<button class="px-5 py-2 bg-primary text-on-primary rounded-lg text-sm font-semibold tracking-tight transition-all active:opacity-80">إنشاء حساب</button>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 md:px-12 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+<!-- Content Left Column -->
+<div class="lg:col-span-2 space-y-8">
+<!-- Profile Header -->
+<section class="bg-surface-container-lowest p-6 md:p-8 rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-outline-variant/30">
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+<div class="relative">
+<img alt="Worker Profile" class="w-32 h-32 rounded-full object-cover border-4 border-surface-container" data-alt="professional portrait of a confident male contractor in a clean blue polo shirt smiling warmly against a blurred workshop background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtjefAAuEYlP9iniCsdURnnede2v-tvd6uf2wUkyJ7byRKaKV8-C1kq_sOSb9hP6IH9JWYXEbQX96KHReWOwZ5C9fYnIy2ykz-Jwut41756P_-GUEpI1NE04Nc66-fSENTKkeV6iQnXelVswpg1c-AVHlTl7rtdM9czNxa7Egp9Nmll6ybtwlTkPjmz97T6H20-toqQGwGvbw_SK8HmcBu6x0DKbVe9PrHN7-a4KEk3zxoxgRB5wtmwAdy592XH6aqx3yu6IWgoL7l"/>
+<div class="absolute bottom-1 left-1 bg-secondary-container p-1 rounded-full border-2 border-white">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="space-y-2 flex-1">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-lg text-headline-lg text-primary">أحمد السيد</h1>
+<span class="bg-surface-container-high text-on-primary-fixed-variant px-2 py-0.5 rounded text-label-sm font-label-sm">كهربائي محترف</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold mr-1">4.9</span>
+<span class="text-on-surface-variant font-normal text-sm mr-1">(124 تقييم)</span>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center text-on-surface-variant text-sm">
+<span class="material-symbols-outlined ml-1">location_on</span>
+                                    وسط المدينة، الرياض
+                                </div>
+</div>
+<p class="text-on-surface-variant font-body-md max-w-lg">
+                                كهربائي معتمد بخبرة تزيد عن 8 سنوات في التمديدات الكهربائية السكنية والتجارية. متخصص في تركيبات المنازل الذكية والإصلاحات الكهربائية المعقدة.
+                            </p>
+</div>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-outline-variant/20">
+<div class="text-center">
+<p class="text-primary font-headline-md">450+</p>
+<p class="text-on-surface-variant text-label-sm uppercase tracking-wider">عملية مكتملة</p>
+</div>
+<div class="text-center border-x border-outline-variant/20">
+<p class="text-primary font-headline-md">8 سنوات</p>
+<p class="text-on-surface-variant text-label-sm uppercase tracking-wider">سنوات خبرة</p>
+</div>
+<div class="text-center">
+<p class="text-primary font-headline-md">&lt; 15 دقيقة</p>
+<p class="text-on-surface-variant text-label-sm uppercase tracking-wider">سرعة الرد</p>
+</div>
+</div>
+</section>
+<!-- Portfolio Grid -->
+<section class="space-y-4">
+<h2 class="font-headline-md text-headline-md text-primary">معرض الأعمال</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Portfolio Item 1 -->
+<div class="group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="grid grid-cols-2 h-48">
+<div class="relative overflow-hidden">
+<img alt="Before" class="h-full w-full object-cover" data-alt="cluttered messy electrical panel with tangled wires and old components before professional renovation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsh5e8lvkbNEIiI--wpmzaWxAY7gn6axdpF3mJup3JfW181Y2yvmdJoc8EjbvLDpLY663hDd-7l80CbjLBKWTP_ZLz1me5oRVMqApdmBPYlIFeP3l8Q5mvaWFNAEyKj-5HPbxboidLPvY1sp2FkVVlpj7-2sOLdMUD8K-KNL_sU73-xnXBEZ3owblEiGicv7-x5rLn9lKZlJuUA-_wDrMpSQ4d2y4nEpTAac43AcABtFf6fNPuLD-VVkH5RS0GOtXGL_RS4zPbMO0v"/>
+<span class="absolute top-2 right-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full backdrop-blur-sm">قبل</span>
+</div>
+<div class="relative overflow-hidden">
+<img alt="After" class="h-full w-full object-cover" data-alt="clean organized electrical panel with neat cable management and new safety breakers after professional installation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq6YpPTG8m9VUGvRh2YJKA-F3opXOKcyo-pvgxizqru8CkkMR2LHQvUUew3qRZdMpU2jSJK-kDBkzeVqH0nl8SjvP3ndmdHXxobf3jUAPT9uu0CwZ3El6Da8fZyHmFgBPQvkdlmKi2f7VJisG2PksM1M7z1dVICUYtWz0xQJ2rvqSvpU70TWnjojz88R5HpIUaxhLQKNt0pNvjF5CSouqfP40vb11Oh2YTPBcPt4mxZgGhEhMWLBgGaclP-wobDA40730LDTHlaH3Q"/>
+<span class="absolute top-2 left-2 bg-secondary-container text-white text-[10px] px-2 py-1 rounded-full font-bold">بعد</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-label-md text-on-surface">تحديث لوحة الكهرباء بالكامل</h3>
+<p class="text-on-surface-variant text-body-sm">مشروع فلل الرياض الحديثة</p>
+</div>
+</div>
+<!-- Portfolio Item 2 -->
+<div class="group relative overflow-hidden rounded-xl border border-outline-variant bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow">
+<div class="grid grid-cols-2 h-48">
+<div class="relative overflow-hidden">
+<img alt="Before" class="h-full w-full object-cover" data-alt="bare white living room ceiling with simple light bulb hanging from a wire before lighting design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAuuhhxcaha9W4uRMwk8R0jDeb3AxbauZGqHeVwNMdZsHupgnVDs112qipsBKACNdSimL4PqmsFkSnJ5xttrbJXt9wSKTtIQD8f3m1JqIsMTleJBkK9ffoc0_3q5QL0wfDzZVpyH_fJVhJ3vfnGtaNhlI2p04abdP2j5mmWc7E9o4geq_XCLC9yDYcW_uPUzSd-WHZ11Tean6S5y6YFMzc3m9EQnyAI_GXGu3iaGYe8g_wdSY2OjPQdvfFROHJfkd9onu0tT1RyPy-"/>
+<span class="absolute top-2 right-2 bg-black/50 text-white text-[10px] px-2 py-1 rounded-full backdrop-blur-sm">قبل</span>
+</div>
+<div class="relative overflow-hidden">
+<img alt="After" class="h-full w-full object-cover" data-alt="modern living room with integrated smart recessed lighting and decorative architectural illumination after installation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDQ78lG1tuqWkXwZ9SJJemVsIKnhNHrmuDvKpxAJ1pry_ymJtc8Vew1WD02YmbEkSRG0YCJKIRXKuluaZdppeFpElK03HcerZdQn68zunBBdXMk2Ea_cjuuECvB2cVc9uOkeA8ZFTUnrtUSSZo_5sLu4VEGj3YvSs0kiOlrJK3uOmFfX2m4W8qkzV9FlCn8PqG2u68J_rA9CtdkKemW8YfnjHZPIrXfdsA6Th7SWKo5mi3WMOELbOE3IjhzBcaIgAGn-Zgsl6ucROg"/>
+<span class="absolute top-2 left-2 bg-secondary-container text-white text-[10px] px-2 py-1 rounded-full font-bold">بعد</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-label-md text-on-surface">دمج الإضاءة الذكية</h3>
+<p class="text-on-surface-variant text-body-sm">تحويل المنزل إلى منزل ذكي</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews -->
+<section class="space-y-4">
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary">تقييمات العملاء</h2>
+<button class="text-secondary font-label-md hover:underline">عرض الكل</button>
+</div>
+<div class="space-y-4">
+<!-- Review 1 -->
+<div class="p-6 bg-white border border-outline-variant/30 rounded-xl">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a middle aged man with glasses and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg6MIiPI3ibRb5qGHJWhBcWLP2ejbG0vGGyY3sHFs-s6K-JWEBgEkU76oicKdPHlGqcWd7xEU7_bCbbBtwaOSJNFu2cfOZJBGj9OeEMPm-HY8ez4PmIgXYSidWGaX8xnPw6PANBZp8qlGxfZ3olbVwgSmZNzraE9kcLmbb8J6QK6jTca1etRfL4ZVA1ZgnN7p-oJvo7AMch-bGmZQTn7gBaTRp-75bD245HQY80vYg1gPzTwpihSSC-BxHMpF5a40sxmfHxlQvsDoT"/>
+<div>
+<p class="font-label-md text-on-surface">عمر ك.</p>
+<div class="flex text-secondary scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant text-sm">منذ يومين</span>
+</div>
+<p class="mt-4 text-on-surface-variant text-body-sm">كان أحمد محترفاً للغاية. وصل في الوقت المحدد تماماً، وقام بتشخيص مشكلة الالتماس الكهربائي فوراً، وأصلحها في غضون ساعة. عمل نظيف جداً!</p>
+</div>
+<!-- Review 2 -->
+<div class="p-6 bg-white border border-outline-variant/30 rounded-xl">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="close up headshot of a woman smiling slightly looking at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpkXL_Q9PumvDtW2ZXHIde1r0lDe09YOc0TZE5UyBuUqdMPiidUsf392qZfGRDK4_iYGNxwQlLmDvekVu-LLaYgqn70nRLCqn6lgziAfDBlk5dKm1wKDcEEss6ie13fnHqqDMiyixnC0vK1MpfXQASG_2CvBsqbkgfxWOLklKCL-GPp1KChfFdt4ApQgK-CnMJKQQ0boS_Dzb9rFogj2Z_whvnlykLm0kQrS8C8hbU6NMy5r4Ur-fqGsP0sFZkvkvOSkdF_GTS-10U"/>
+<div>
+<p class="font-label-md text-on-surface">سارة م.</p>
+<div class="flex text-secondary scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+</div>
+</div>
+<span class="text-on-surface-variant text-sm">منذ أسبوع</span>
+</div>
+<p class="mt-4 text-on-surface-variant text-body-sm">خدمة رائعة لتجديد إضاءة المطبخ. قدم اقتراحات مفيدة جداً بشأن التجهيزات التي يجب شراؤها. أوصي به بشدة لأي مشاريع منزل ذكي.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Booking Sidebar -->
+<aside class="lg:sticky lg:top-24 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-lg border border-outline-variant/40">
+<div class="mb-6">
+<p class="text-on-surface-variant text-label-sm uppercase tracking-widest mb-1">دليل الأسعار</p>
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-primary">150 ر.س</span>
+<span class="text-on-surface-variant text-sm">/ السعر الأساسي للزيارة</span>
+</div>
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg border border-surface-variant/50">
+<div class="flex justify-between items-center text-body-sm mb-1">
+<span>إصلاحات بسيطة نموذجية</span>
+<span class="font-bold">200 - 450 ر.س</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<span>مشاريع التركيب</span>
+<span class="font-bold">500+ ر.س</span>
+</div>
+</div>
+</div>
+<form class="space-y-4">
+<div>
+<label class="font-label-md text-on-surface mb-2 block">نوع الحجز</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary bg-primary-fixed/30 text-primary transition-all" type="button">
+<span class="material-symbols-outlined mb-1">bolt</span>
+<span class="text-label-sm">طلب فوري</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant bg-white text-on-surface-variant hover:border-primary/50 transition-all" type="button">
+<span class="material-symbols-outlined mb-1">calendar_month</span>
+<span class="text-label-sm">جدولة لاحقاً</span>
+</button>
+<a href="chat.html">
+<button class="flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant bg-white text-on-surface-variant hover:border-primary/50 transition-all" type="button">
+<span class="material-symbols-outlined mb-1">calendar_month</span>
+<span class="text-label-sm">مراسلة</span>
+</button>
+</a>
+</div>
+</div>
+<div>
+<label class="font-label-md text-on-surface mb-2 block">صف المهمة المطلوبة</label>
+<textarea class="w-full rounded-xl border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary text-body-sm" placeholder="مثلاً: ضوء غرفة المعيشة لا يعمل وهناك رائحة حريق..." rows="3"></textarea>
+</div>
+<div>
+<label class="font-label-md text-on-surface mb-2 block">الصور (اختياري)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-xl p-4 text-center cursor-pointer hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-outline text-3xl">add_a_photo</span>
+<p class="text-label-sm text-on-surface-variant mt-1">تحميل صور المهمة</p>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md shadow-md active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span>احجز الآن</span>
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<p class="text-center text-[11px] text-on-surface-variant px-4">
+                            لن يتم تحصيل أي مبالغ الآن. سيتم الاتفاق على السعر النهائي بعد المعاينة.
+                        </p>
+</form>
+</div>
+<!-- Trusted Badge -->
+<div class="flex items-center gap-4 p-4 bg-surface-container-high/50 rounded-xl border border-outline-variant/30">
+<div class="bg-primary-container p-2 rounded-full">
+<span class="material-symbols-outlined text-on-primary-container">shield_with_heart</span>
+</div>
+<div>
+<p class="font-label-md text-primary">ضمان أوستاوي</p>
+<p class="text-[11px] text-on-surface-variant">عمل مؤمن عليه ومعالجة دفع آمنة لكل مهمة.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 mt-12">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="space-y-4">
+<span class="text-xl font-bold text-slate-900 dark:text-white">أوستاوي</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                    نربط أصحاب المنازل بمحترفين موثوقين في جميع أنحاء المملكة. خدمة موثوقة بضغطة زر.
+                </p>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-slate-100">الخدمات</h4>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">الكهرباء</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">السباكة</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">النجارة</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">إصلاح التكييف</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-slate-100">الشركة</h4>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">من نحن</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">الوظائف</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">سياسة الخصوصية</a></li>
+<li><a class="hover:underline decoration-blue-500 underline-offset-4" href="#">شروط الخدمة</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-4 text-slate-900 dark:text-slate-100">النشرة الإخبارية</h4>
+<div class="flex">
+<input class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-r-lg px-4 py-2 w-full text-sm" placeholder="بريدك الإلكتروني" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-l-lg font-bold text-sm">انضمام</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 text-center">
+<p class="text-slate-500 dark:text-slate-400 text-sm">© 2024 سوق أوستاوي. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-16 pb-safe bg-white dark:bg-slate-900 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-100 dark:border-slate-800">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">الرئيسية</span>
+</div>
+<div class="flex flex-col items-center justify-center text-blue-900 dark:text-blue-400 scale-110 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">بحث</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">حجوزاتي</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">الرسائل</span>
+</div>
+</nav>
+</body></html>

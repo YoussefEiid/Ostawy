@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="light" dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "tertiary-fixed": "#e0e3e6",
+                "on-error-container": "#93000a",
+                "inverse-primary": "#b6c6f0",
+                "surface-bright": "#f8f9ff",
+                "surface": "#f8f9ff",
+                "error-container": "#ffdad6",
+                "on-secondary-fixed": "#331200",
+                "primary-fixed-dim": "#b6c6f0",
+                "on-tertiary-fixed": "#191c1e",
+                "error": "#ba1a1a",
+                "background": "#f8f9ff",
+                "tertiary-container": "#292c2e",
+                "on-tertiary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#eaf1ff",
+                "primary-container": "#1a2b4c",
+                "on-surface-variant": "#44474e",
+                "on-primary-container": "#8293ba",
+                "on-secondary-fixed-variant": "#773200",
+                "surface-container-highest": "#d3e4fe",
+                "on-secondary-container": "#5b2500",
+                "on-error": "#ffffff",
+                "surface-container": "#e5eeff",
+                "surface-container-high": "#dce9ff",
+                "surface-container-low": "#eff4ff",
+                "outline": "#75777f",
+                "secondary": "#9c4400",
+                "tertiary": "#14181a",
+                "inverse-surface": "#213145",
+                "surface-dim": "#cbdbf5",
+                "secondary-fixed": "#ffdbca",
+                "on-surface": "#0b1c30",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#c4c7ca",
+                "on-tertiary-fixed-variant": "#44474a",
+                "on-background": "#0b1c30",
+                "secondary-container": "#fd7613",
+                "primary": "#031636",
+                "on-primary-fixed-variant": "#364669",
+                "surface-tint": "#4e5e82",
+                "on-primary": "#ffffff",
+                "secondary-fixed-dim": "#ffb68f",
+                "on-primary-fixed": "#071b3b",
+                "outline-variant": "#c5c6cf",
+                "on-tertiary-container": "#909396",
+                "surface-variant": "#d3e4fe",
+                "primary-fixed": "#d8e2ff"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "label-md": ["Manrope"],
+                "headline-xl": ["Manrope"],
+                "body-sm": ["Manrope"],
+                "headline-lg": ["Manrope"],
+                "body-md": ["Manrope"],
+                "body-lg": ["Manrope"],
+                "label-sm": ["Manrope"],
+                "headline-md": ["Manrope"]
+            },
+            "fontSize": {
+                "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .chat-scrollbar::-webkit-scrollbar { width: 4px; }
+        .chat-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .chat-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased h-screen flex flex-col">
+<!-- Top Navigation Header -->
+<header class="bg-white dark:bg-slate-950 font-manrope antialiased tracking-tight border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none docked full-width top-0 z-50 flex flex-row-reverse justify-between items-center w-full px-6 py-3 max-w-full">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black text-blue-900 dark:text-blue-50">خدماتي</span>
+</div>
+<nav class="hidden md:flex flex-row-reverse items-center gap-8">
+<span class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer px-3 py-1 rounded-lg">الرئيسية</span>
+<span class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer px-3 py-1 rounded-lg">البحث</span>
+<span class="text-blue-900 dark:text-blue-400 font-bold border-b-2 border-blue-900 px-3 py-1">محادثاتي</span>
+<span class="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors cursor-pointer px-3 py-1 rounded-lg">حسابي</span>
+</nav>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:text-primary transition-colors">settings</button>
+<img alt="صورة الملف الشخصي للمستخدم" class="w-10 h-10 rounded-full border-2 border-primary/10 object-cover" data-alt="Professional headshot of a middle-aged man with a friendly expression in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCjnyncwjgNQEAQL00p082rR7sbrTdHky339PPavl8_BFpx1RfU8N3yUFK-LeitXnPWkQhKN1pkVEqQN_idVFuym6vE40wqdQVnhr4cSMXR69AFTWP9wEt3Opor2gBCT7zQfh-idIfpD8fwsntdCXpHMN9EalYk3rVfJeM8kv5X9We8kZC4LVpb8-_T0-ttOSkjpi1ADt9kl-79h3htQKOEVMGkXf1jqmbqtys4uJ0LS4YQ2MDZ2PYkvN6NSuwAWFnaHWPlES1r-UI"/>
+</div>
+</header>
+<!-- Main Content Area: 3-Column Layout -->
+<main class="flex-grow flex overflow-hidden max-w-[1440px] mx-auto w-full">
+<!-- Right Column: Conversation List -->
+<aside class="hidden md:flex flex-col w-1/4 min-w-[300px] bg-white border-l border-slate-200">
+<div class="p-4 border-b border-slate-100">
+<div class="relative">
+<input class="w-full bg-surface-container-low border-none rounded-xl py-2 px-10 text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="البحث في المحادثات..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-slate-400">search</span>
+</div>
+</div>
+<div class="flex-grow overflow-y-auto chat-scrollbar">
+<!-- Active Chat Item -->
+<div class="flex items-center gap-3 p-4 bg-primary-fixed/30 border-r-4 border-primary cursor-pointer">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Experienced male plumber in professional blue work uniform with a kind and trustworthy face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL7DBDDVYqknguPnGxRch4-1tk0rAZ4fm2zX0xucEtD6dKZUbtOHYEOVS0KR9cJQJRgiZBR8wSTvQZb685NS0_Lso1V4Zcq1ljI9-BCjcA9LRFtnHmBDBD2gGlN31Ha-lSzkFRcc8XU6d__8BMl6kqgWZZVZ0eDNNnWfaULaa8WLZH2vNWZ-rGuG55p2we5AAnJiLCyQs4tvz_Bl4WnQ5uJfT2Vc_q1-aiT0rXYoFGUITtAZbiY9C_-XTATlpOIVVqI5OzCuD1jEdd"/>
+<span class="absolute bottom-0 left-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-sm text-primary truncate">م/ أحمد سالم</h3>
+<span class="text-[10px] text-slate-400">10:45 ص</span>
+</div>
+<p class="text-body-sm text-slate-500 truncate">سأصل خلال 15 دقيقة إن شاء الله.</p>
+</div>
+</div>
+<!-- Other Chat Items -->
+<div class="flex items-center gap-3 p-4 hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Professional female electrician wearing safety gear and looking confident in a residential setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv37KjYpWhY1RVEjWYvV8rmZOvL46FD54rJM8U940hQD4WbQC0MwhkFHOz_GohE6jl0vqMp1XbQyrvy7wWrz0r_TEJubQeOlxJO850vYblKwLLybxwdGd7Q-_NWwNMuMeGL4vaKXckOSVLQXun638w89dDhFhyjJxVpbcVuTMJpeX6ZBjL_PtAfXuvzjn7uImHa5uVJhX_pNUFy9vUUFTMPFsDmzN1bTk3jpxmzjcp3kY2aZotAv3i8v3DDJ7hI5NQ5Nx7jwrGpnUO"/>
+<span class="absolute bottom-0 left-0 w-3 h-3 bg-slate-300 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-sm text-primary truncate">م/ سارة علي</h3>
+<span class="text-[10px] text-slate-400">أمس</span>
+</div>
+<p class="text-body-sm text-slate-500 truncate">تم تأكيد موعد الصيانة غداً.</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-4 hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Senior maintenance technician with grey hair in a clean beige uniform holding a clipboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgy8z4P7EZkNeHckNTn-qeg_a4EsFfGGtjjGQ0LTzDjUDRln5o7L3b2eWIs7TSUUYP1Do5ubDAePrkkF4zs3HfTNkXiNVBXemMLAQvQZqXE1sN1xMhgzoe4y9ojkVPEylSqNCw5FH1gf8E0mkNnCri_OIwvYJR0-WgeWnT3b7mjkeV7IC6YFG0qEMeYR0H8BnLtQYW2Y9ov4KYJj7uUwgPZf-Fqe7DTOl9rW9aebv5wF4Uw3Cv-v1pMIkSKh8a5n6e5R0h1vhOGHzV"/>
+<span class="absolute bottom-0 left-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<h3 class="font-headline-md text-sm text-primary truncate">م/ خالد محمود</h3>
+<span class="text-[10px] text-slate-400">الاثنين</span>
+</div>
+<p class="text-body-sm text-slate-500 truncate">شكراً لتعاملك معنا.</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Center Column: Chat Window -->
+<section class="flex-grow flex flex-col bg-surface-container-lowest">
+<!-- Chat Header (Mobile Friendly) -->
+<div class="flex items-center justify-between p-4 bg-white border-b border-slate-100 shadow-sm">
+<div class="flex items-center gap-3">
+<button class="md:hidden material-symbols-outlined text-slate-600">arrow_forward</button>
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close up of professional plumber Ahmed Salem looking friendly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqjwBzX0Ei4l-EavxmMqxgRUT1v3QyRsXExB91QGjoyokLNhUcRyhQfTmlj0B5UBHP_OC9fl8PKpV6pHIIlTFwqyXFu_zzPQk50XB3AsvcXL3ZA4KMOeZGUCGmM5Ykysylt4Z0rS33IXQqK538ssXO_FTGKDHNVkJAM8WGU0fCo6ClB-KDNgMmLeLrr_QtUNsVENNpckkAPWV6FoyPZNumaWcWn1fEvwdKngWM6m8W_s6cnj6D6tForh2sisOTRjEVkZdc0YxwM5OD"/>
+<span class="absolute bottom-0 left-0 w-2.5 h-2.5 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h2 class="font-headline-md text-base leading-tight">أحمد سالم</h2>
+<span class="text-label-sm text-green-600">متصل الآن</span>
+</div>
+</div>
+<div class="flex gap-2"><a class="hidden md:flex items-center gap-2 bg-secondary-container text-white px-4 py-2 rounded-xl text-sm font-bold hover:opacity-90 transition-all shadow-sm" href="{{DATA:SCREEN:SCREEN_10}}">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>إنهاء الخدمة والتقييم</span>
+</a>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-600 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+</div>
+</div>
+<!-- Messages Area -->
+<div class="flex-grow overflow-y-auto p-6 flex flex-col gap-6 chat-scrollbar bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:20px_20px]">
+<div class="flex justify-center">
+<span class="bg-surface-container-high text-on-surface-variant text-[12px] px-3 py-1 rounded-full">اليوم</span>
+</div>
+<!-- Received Message -->
+<div class="flex items-end gap-3 max-w-[80%]">
+<img class="w-8 h-8 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbd_IWhkkXqIsJTnzekDW_lSvmXXwlu9mic1fdgAlCmOxLHPlMCpPbcStFaS0lQyUFgu48-t9yX8jmx3nUGrtXqSi4sLU0Xhq6fU21Ff7AzqMYDk1jIew9Dli-QRnlih7sXrVGPGNlVJ8Io_169iHNKOBKzY_h0oh2n1IfaCaI7EKLdqI1889WMyDRB4sSe7Q2z0MVyzc9sgKQuy3j7UuVQ3_iNlJ-eiPGFP0QRWpJQ8Trgbp_wJNLcL4_xYMMYnpTHYEBNYuuuH1e"/>
+<div class="flex flex-col gap-1">
+<div class="bg-white border border-slate-100 p-3 rounded-2xl rounded-br-none shadow-sm text-primary">
+                            أهلاً بك أستاذي الكريم، لقد استلمت طلبك بخصوص صيانة تسريب المياه في المطبخ.
+                        </div>
+<span class="text-[10px] text-slate-400 mr-2">10:30 ص</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex flex-row-reverse items-end gap-3 max-w-[80%] self-end">
+<div class="flex flex-col gap-1 items-end">
+<div class="bg-primary text-white p-3 rounded-2xl rounded-bl-none shadow-md">
+                            أهلاً م/ أحمد. شكراً لسرعة الرد. متى تستطيع الوصول؟
+                        </div>
+<div class="flex items-center gap-1 ml-2">
+<span class="text-[10px] text-slate-400">10:32 ص</span>
+<span class="material-symbols-outlined text-[12px] text-blue-500">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Message (Image Attachment) -->
+<div class="flex items-end gap-3 max-w-[80%]">
+<img class="w-8 h-8 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDySKX6ZvH2BUk8FfLK8wrd1ORbTSJtsk_Q2NFFwOHE2p19sB9jmg5jbS-lFHSd_Que-YYjB1D0QilxOxj4DEuR8XuWQ5bU6gePHeyAxZAyPRY2M2w48QWpNGIBY6X8YxvfAc18dOD_lL_t58iPWzg5N1n4751OQcJWAz5pd_GfEUypJi9uyXhUvjdE93pQiTt7Kd5vC9GZ5MBFeXB_UnqBa_dUbo-aiLcOHIHSYJIJ1txt2SI7iYjhwRoTzn-5-B68yyjb1XIhIxDQ"/>
+<div class="flex flex-col gap-1">
+<div class="bg-white border border-slate-100 p-2 rounded-2xl rounded-br-none shadow-sm">
+<img class="rounded-xl mb-2 w-full h-40 object-cover" data-alt="Close up photo of a modern high-quality sink faucet being repaired by professional tools" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe1p_y9tGX-Is39FMcXlHqKxBvHELq_76PgoCwzJDAmY5PWrzSpficLcY5ftC3rnv9gDFIx058BNwxvIfJ0RTmmvNj2C7SO-4N9piRSpGNV5l4RQ7PnXaMuE7jFllaO557PsFCPB_kG0iLA0UZm6tnN8BrhaTxKriSIlT45FKBAUuvTVHz7qY8C406igb-NXX4U4QCdIY9mpDApDrwg6qrMTD3Yc0oZw0nwrBKKQ1RfhKzrjqSi_YPXbOsD09zoFRqJ0bnn01aZfFO"/>
+<p class="text-primary px-1">سأحتاج إلى تغيير هذه القطعة لضمان عدم تكرار المشكلة.</p>
+</div>
+<span class="text-[10px] text-slate-400 mr-2">10:40 ص</span>
+</div>
+</div>
+<!-- Received Message (Current Status) -->
+<div class="flex items-end gap-3 max-w-[80%]">
+<img class="w-8 h-8 rounded-full" data-alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ1JPLT7JvrJsYrWtrxo6M125AcxoUVhZ0cKheXFSeuH8Dw-uy_33Jc6lsIsxgM8JUDhTnTWlqbK1yNdkSSVhmPq8dPCOKtGW3xuuyLHUNdcUI9JPddSLwH3B3hP5whtt6ed7hoXKqAjLriuzJZ12cbMtwBLGsNwzoUvnowUFMv-BtoPJigt8yVVCOrsFElScIiRShpZskxd7dNweLOCoBnb8Ma11VxDySxl5knqEtTopDgKkPO-2bjgY1WRka3lJDAPB50zDKQqBv"/>
+<div class="flex flex-col gap-1">
+<div class="bg-white border border-slate-100 p-3 rounded-2xl rounded-br-none shadow-sm text-primary">
+                            سأصل خلال 15 دقيقة إن شاء الله. أنا الآن في الطريق.
+                        </div>
+<span class="text-[10px] text-slate-400 mr-2">10:45 ص</span>
+</div>
+</div>
+</div>
+<!-- Chat Input Area -->
+<div class="p-4 bg-white border-t border-slate-100">
+<div class="flex items-center gap-3 bg-surface-container-low rounded-2xl px-4 py-2 border border-slate-100 focus-within:border-primary/30 transition-all shadow-inner">
+<button class="material-symbols-outlined text-slate-500 hover:text-secondary-container transition-colors" data-icon="add_circle">add_circle</button>
+<button class="material-symbols-outlined text-slate-500 hover:text-secondary-container transition-colors" data-icon="image">image</button>
+<input class="flex-grow bg-transparent border-none focus:ring-0 text-body-md py-2" placeholder="اكتب رسالتك هنا..." type="text"/>
+<button class="material-symbols-outlined text-slate-500 hover:text-secondary-container transition-colors" data-icon="mic">mic</button>
+<button class="bg-secondary-container text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-secondary-container/90 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Left Column: Details Panel -->
+<aside class="hidden lg:flex flex-col w-1/4 bg-white border-r border-slate-200">
+<div class="p-8 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img class="w-32 h-32 rounded-full object-cover border-4 border-slate-50 shadow-lg" data-alt="Detailed professional portrait of Ahmed Salem, the service provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnmxnw72Ht2RPFh3HbrnuJd0fmX5KssFkMkzb3NMrLdtvq6QNHuhgSXHh033ny0jUM8X0EVmS1Hlk74yFKgf8zUFuREWiyG--a_bX2Z2p5RpAdWh7FyaqM2SES7V2V8vQn8X_AGVd9-38emEXpuk0SPOzY2aqP247RNCJJZCqCqVS0e-g5i2nt6z54mrcdeLki03tzJpQIaFMxeu0WvwlmViOziOoGze8wwC1eTCjhsfRSaGyRafRSY9pVbt0bc3y4ginp16q9x9hC"/>
+<span class="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></span>
+</div>
+<h2 class="font-headline-lg text-primary mb-1">أحمد سالم</h2>
+<div class="bg-orange-50 text-secondary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9 (120 تقييم)</span>
+</div>
+<div class="w-full flex flex-col gap-4 text-right">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-label-sm text-slate-500 mb-1">نوع الخدمة</p>
+<p class="font-headline-md text-sm text-primary">أعمال سباكة وصيانة صحية</p>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<p class="text-label-sm text-slate-500 mb-1">سعر الخدمة يبدأ من</p>
+<p class="font-headline-md text-sm text-secondary">50 ريال / ساعة</p>
+</div>
+</div>
+<div class="w-full mt-8 flex flex-col gap-3">
+<a href="book_time.html">
+<button class="w-full py-3 bg-primary text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-container transition-colors shadow-md">
+<span class="material-symbols-outlined text-sm">event_available</span>
+<span>حجز موعد جديد</span>
+</a>
+</button><a class="w-full py-3 bg-secondary-container text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-colors shadow-md" href="rate.html">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>إنهاء الخدمة والتقييم</span>
+<a href="worker_profile.html">
+<button class="w-full py-3 border border-slate-200 text-slate-700 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-sm">person</span>
+<span>الملف الشخصي</span>
+</button>
+</a>
+</div>
+</div>
+<div class="mt-auto p-6 border-t border-slate-100">
+<h4 class="text-label-md text-primary mb-4">المرفقات السابقة</h4>
+<div class="grid grid-cols-3 gap-2">
+<img class="w-full h-16 object-cover rounded-lg" data-alt="Technical drawing of plumbing system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcwgXptR1rs5f0HBarjf_C1fTlIefx9EiGV7gkNILuG1fvFLLnzFeKd0WRgBS92kO60SDrkqAPtdXqDefoQPi-gqpfed_sF0k52zpGgx1vcLI9hOpRRpSpetGLarloZf8i5DD3hzU8IueAXf4E-2JROdv7txlAjAr7Jc6kD0a20lyj1b-DVkAJRNWnzcrqd-vQJReKEIWKGoyxwUGUqUHZROiBKHW8QfeOMpkzTDeeSmXh6uzmup7LBR1n51N5Bg0z0TZoHAHWshgZ"/>
+<img class="w-full h-16 object-cover rounded-lg" data-alt="Close up of pipe joint and wrench" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbXqcC1ePQLWCedJNr2pgtQJbJrp-GkZVxPwkWK0yJJM4DGLFn-bx4B1Y7NPg2OLjJwEWFynytwgsL31luuhhByRjiY7H1G1VvE77Alu5_WAR-W-Kau2EoC-mfkN5coiCd4FXSEIcMxS_0fN5A-l74utM_rpjBr1q0MrwQu3pxZWAXIOmGUR_gvgOc3-LJY_h94OtKCkKcjIQnfP3z-C0YkH8_CgRYLJJ_yTngX94F1ugTAY9hmhTmJibFPjO5nRWysD9vnUFUN5it"/>
+<div class="w-full h-16 bg-slate-100 rounded-lg flex items-center justify-center text-slate-400 text-xs">+12</div>
+</div>
+</div>
+</aside>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden bg-white/90 dark:bg-slate-900/90 backdrop-blur-md fixed bottom-0 left-0 w-full flex flex-row-reverse justify-around items-center px-4 py-3 pb-safe border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50 rounded-t-2xl">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">home</span>
+<span class="font-manrope text-[11px] font-semibold">الرئيسية</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">search</span>
+<span class="font-manrope text-[11px] font-semibold">البحث</span>
+</div>
+<div class="flex flex-col items-center justify-center text-blue-900 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-900/20 rounded-xl px-3 py-1 scale-110 transition-transform duration-200 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span class="font-manrope text-[11px] font-semibold">محادثاتي</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[11px] font-semibold">حسابي</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-container": "#292c2e",
+                      "surface-container-low": "#eff4ff",
+                      "surface-dim": "#cbdbf5",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed": "#e0e3e6",
+                      "surface-variant": "#d3e4fe",
+                      "surface-tint": "#4e5e82",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-surface-variant": "#44474e",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#c4c7ca",
+                      "secondary-fixed-dim": "#ffb68f",
+                      "inverse-on-surface": "#eaf1ff",
+                      "inverse-surface": "#213145",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#071b3b",
+                      "on-tertiary-fixed-variant": "#44474a",
+                      "surface": "#f8f9ff",
+                      "on-tertiary-container": "#909396",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#364669",
+                      "primary": "#031636",
+                      "outline-variant": "#c5c6cf",
+                      "surface-bright": "#f8f9ff",
+                      "secondary-container": "#fd7613",
+                      "on-secondary-fixed": "#331200",
+                      "on-secondary-fixed-variant": "#773200",
+                      "tertiary": "#14181a",
+                      "surface-container-high": "#dce9ff",
+                      "on-secondary-container": "#5b2500",
+                      "inverse-primary": "#b6c6f0",
+                      "outline": "#75777f",
+                      "background": "#f8f9ff",
+                      "surface-container": "#e5eeff",
+                      "on-background": "#0b1c30",
+                      "secondary-fixed": "#ffdbca",
+                      "primary-fixed-dim": "#b6c6f0",
+                      "error-container": "#ffdad6",
+                      "primary-container": "#1a2b4c",
+                      "secondary": "#9c4400",
+                      "on-primary-container": "#8293ba",
+                      "on-tertiary-fixed": "#191c1e",
+                      "primary-fixed": "#d8e2ff",
+                      "on-surface": "#0b1c30",
+                      "surface-container-highest": "#d3e4fe"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "2xl": "48px",
+                      "base": "4px",
+                      "margin-desktop": "32px",
+                      "xl": "32px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "label-sm": ["Manrope"],
+                      "label-md": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-xl": ["Manrope"],
+                      "body-sm": ["Manrope"],
+                      "headline-md": ["Manrope"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .star-active { font-variation-settings: 'FILL' 1; color: #fd7613; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top Navigation -->
+<header class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 flex justify-between items-center px-4 h-16 w-full sticky top-0 z-50 flex-row-reverse">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-slate-700 transition-colors cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+<h1 class="text-xl font-bold text-[#1A2B4C] dark:text-white">Ostawy</h1>
+<button class="material-symbols-outlined p-2 hover:bg-slate-50 rounded-full transition-colors" data-icon="close">close</button>
+</header>
+<main class="max-w-2xl mx-auto px-gutter py-lg">
+<!-- Hero Success Message -->
+<section class="text-center mb-xl">
+<div class="inline-flex items-center justify-center w-20 h-20 bg-surface-container rounded-full mb-md">
+<span class="material-symbols-outlined text-[#fd7613] text-4xl" data-icon="celebration" data-weight="fill" style="font-variation-settings: 'FILL' 1;">celebration</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-xs">شكراً لاستخدامك أوستاوي!</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">تم إنجاز خدمتك بنجاح، يسعدنا سماع رأيك لتحسين جودة خدماتنا.</p>
+</section>
+<!-- Service Summary Card -->
+<div class="bg-white border border-outline-variant rounded-xl p-md mb-lg shadow-sm flex items-center gap-md">
+<div class="w-16 h-16 rounded-full overflow-hidden bg-surface-container-low flex-shrink-0">
+<img alt="أحمد سالم" class="w-full h-full object-cover" data-alt="professional Middle Eastern handyman in blue uniform smiling in front of a white wall, studio lighting, clean professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJD_zPu_jjRaGqPgwcsEkozMFyN9Pv95qwpR3szHzfQ_BzW_uBxSOL2I8LM72kDEF8fFQZHD9aQa6_LYB-IRPPwIfU_Vhcs7ai0fhjHvPbavEw6jGHeWGJMWgwcqiBrWOqMWssyz9eFsQPPaG2VRXaU-GPxZNpomLIZ2dY3595u2V7b9tq6MesxibWjsy-mOZwhS9edFhqGZNRb1y7TJ_xT6vu4r-KV1bzddTnAYY7dxiE5ifJYvWuKT65sclysSlKMBMnHegZuRiZ"/>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary">أحمد سالم</h3>
+<div class="flex items-center gap-sm mt-1">
+<span class="bg-surface-container-high px-2 py-0.5 rounded text-label-sm font-label-sm text-primary">أعمال سباكة</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">24 أكتوبر 2023</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-secondary font-bold">#ORD-5542</div>
+</div>
+</div>
+<!-- Rating Section -->
+<div class="space-y-lg">
+<!-- Overall Stars -->
+<div class="bg-white border border-outline-variant rounded-xl p-lg text-center shadow-sm">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-md">التقييم الإجمالي للتجربة</h4>
+<div class="flex justify-center gap-2 mb-sm">
+<span class="material-symbols-outlined text-4xl cursor-pointer star-active" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer star-active" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer star-active" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer star-active" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-4xl cursor-pointer text-outline-variant" data-icon="star">star</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary-container font-bold">رائع جداً!</p>
+</div>
+<!-- Detailed Criteria -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-sm">الدقة في المواعيد</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-sm">جودة العمل</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-md" data-icon="star">star</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-sm">السلوك والاحترافية</p>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-secondary-container text-md" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+<!-- Photos Upload (Bento Style) -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<h4 class="font-label-md text-label-md text-primary">صور العمل المنجز</h4>
+<span class="text-label-sm text-on-surface-variant">اختياري</span>
+</div>
+<div class="grid grid-cols-4 gap-sm h-32">
+<div class="col-span-1 rounded-xl bg-surface-container-low border-2 border-dashed border-outline flex flex-col items-center justify-center cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="add_a_photo">add_a_photo</span>
+<span class="text-[10px] mt-1 font-bold">إضافة</span>
+</div>
+<!-- Mock Photos -->
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img alt="عمل السباكة 1" class="w-full h-full object-cover" data-alt="close-up of shiny chrome kitchen faucet professionally installed on white marble countertop, clean modern interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlWuNVPtSK97f5ezH0oM5bWXrofXudU7J8eehIBMyw-1ppFtcnjUBnW-3uDdoeSMlLNmdhPoSDrip4kH4GhMe35PuuLbwEp2kdXW1Osns3phrr0nl1KhAbdA7mx1HXzgZzo_FoHDKuSUe31afhWKpRdX4gc9-9bToD6mX0houZFUys0aPJLSy_68U3a0KT1kR__ZF7R8BMyAYyFA6iZeWd9I9hs1XZdH4-sRT22YGiKrbWsUf0PmHwMzOR-b7eTpemDjynHiILgmMx"/>
+<button class="absolute top-1 right-1 bg-white/80 rounded-full p-0.5 text-error">
+<span class="material-symbols-outlined text-sm" data-icon="cancel">cancel</span>
+</button>
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img alt="عمل السباكة 2" class="w-full h-full object-cover" data-alt="organized plumbing pipes under a sink with copper and pvc materials, professional installation craftsmanship" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL2RYMvwPcaeATwl0dFLIVA7_nrE4Xs2MHfFLLc8HO81ppQKnqGEB_YHhPMqmWVIGLBpcYyscYZQiHP-2VKXVg4bGQ5kv813nujkg4WJ4qmcL7APnIl3Xa8ZQWgH1CUmLD0F78IF-41oan8AW8vcC4wTmDJygLvmIy3yf-0ezFptCv5zCjgqSDR4XflrCl6qNokmUVOB2cEfPy9dMJ3qulXVqcQ1Nbstv1w8NtYAhACb4_jqmWeU2D_28xTzLqKLL7alrmJKaxSEvJ"/>
+</div>
+<div class="col-span-1 rounded-xl bg-surface-container-low flex items-center justify-center opacity-40">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="image">image</span>
+</div>
+</div>
+</div>
+<!-- Feedback Text Field -->
+<div class="space-y-sm">
+<label class="font-label-md text-label-md text-primary block" for="feedback">ملاحظاتك وتعليقاتك</label>
+<textarea class="w-full bg-white border border-outline-variant rounded-xl p-md font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-outline" id="feedback" placeholder="اكتب هنا تجربتك مع أحمد، هل كنت راضياً عن الخدمة؟" rows="4"></textarea>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-sm pt-md">
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md text-headline-md shadow-lg active:scale-[0.98] transition-transform flex items-center justify-center gap-2">
+<span>إرسال التقييم</span>
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+<a href="home_page.html">
+<button class="w-full bg-transparent border border-outline-variant text-primary py-4 rounded-xl font-label-md text-label-md active:bg-surface-container transition-colors">
+                    العودة للرئيسية
+                </button>
+                </a>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Shell (Inactive for task-focused page but provided for context as per guidelines) -->
+<!-- Note: Following the "Task-Focused" rule to hide bottom nav on sub-pages, but I will provide the placeholder if needed -->
+<nav class="fixed bottom-0 left-0 w-full z-50 h-16 flex justify-around items-center px-2 flex-row-reverse bg-white/95 backdrop-blur-md border-t border-slate-100 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] md:hidden opacity-40 pointer-events-none">
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[11px] font-medium">الرئيسية</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[11px] font-medium">البحث</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1A2B4C] after:content-[''] after:w-1 after:h-1 after:bg-[#1A2B4C] after:rounded-full after:mt-1">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-[11px] font-medium">حجوزاتي</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-medium">الملف الشخصي</span>
+</div>
+</nav>
+</body></html>

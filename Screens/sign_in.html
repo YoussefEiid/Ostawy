@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#071b3b",
+                      "primary-fixed": "#d8e2ff",
+                      "on-surface-variant": "#44474e",
+                      "primary": "#031636",
+                      "inverse-on-surface": "#eaf1ff",
+                      "surface-container-low": "#eff4ff",
+                      "surface-container-highest": "#d3e4fe",
+                      "background": "#f8f9ff",
+                      "on-primary-fixed-variant": "#364669",
+                      "surface-dim": "#cbdbf5",
+                      "secondary-fixed": "#ffdbca",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#331200",
+                      "on-tertiary-container": "#909396",
+                      "on-tertiary-fixed-variant": "#44474a",
+                      "on-primary": "#ffffff",
+                      "primary-fixed-dim": "#b6c6f0",
+                      "surface-variant": "#d3e4fe",
+                      "on-secondary-container": "#5b2500",
+                      "tertiary-container": "#292c2e",
+                      "outline": "#75777f",
+                      "inverse-surface": "#213145",
+                      "inverse-primary": "#b6c6f0",
+                      "primary-container": "#1a2b4c",
+                      "tertiary-fixed-dim": "#c4c7ca",
+                      "surface-bright": "#f8f9ff",
+                      "surface-tint": "#4e5e82",
+                      "surface-container-high": "#dce9ff",
+                      "secondary": "#9c4400",
+                      "surface-container-lowest": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "on-primary-container": "#8293ba",
+                      "on-tertiary-fixed": "#191c1e",
+                      "tertiary": "#14181a",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "surface-container": "#e5eeff",
+                      "on-background": "#0b1c30",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#fd7613",
+                      "on-error": "#ffffff",
+                      "secondary-fixed-dim": "#ffb68f",
+                      "tertiary-fixed": "#e0e3e6",
+                      "on-secondary-fixed-variant": "#773200",
+                      "outline-variant": "#c5c6cf",
+                      "on-surface": "#0b1c30"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "base": "4px",
+                      "margin-mobile": "16px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "margin-desktop": "32px",
+                      "2xl": "48px",
+                      "lg": "24px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Manrope"],
+                      "label-md": ["Manrope"],
+                      "body-md": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-lg": ["Manrope"],
+                      "body-sm": ["Manrope"],
+                      "label-sm": ["Manrope"],
+                      "headline-xl": ["Manrope"]
+              },
+              "fontSize": {
+                      "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                      "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>body {
+    font-family: "Manrope", sans-serif;
+    background-color: #f8f9ff
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.login-split-image {
+    background-image: linear-gradient(rgba(3, 22, 54, 0.8), rgba(3, 22, 54, 0.4)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCjKdZmWWdTuk6qtlYjeEOEbdulttggRD2RBl1JSykwU6oKY9M_lGHI2J1eDCswBi8Yklc18k4ho6GloQ_tPuU5tnlO6ANP5IER6WYpaYH5JJKB7GN1LL-X8amtHvzIqnvDxXh8lOpPBL6SAUjEtyYVi8d5RXKcyQ-geKlDhzZkDfEoRH8G1zgP77LTXeVZeA-LcVUk4jj_H90N6c9vIyvBXGWYHrdLA_q9kGXtONF1uDtq3uL9ZxE7ROYxBOqmABd0CuaYIyF_j9FS);
+    background-size: cover;
+    background-position: center
+    }</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<div class="flex-grow grid grid-cols-1 md:grid-cols-2">
+<!-- Brand/Hero Section (Split Screen Left/Right dependent on RTL) -->
+<div class="hidden md:flex login-split-image relative p-xl flex-col justify-between text-white order-last md:order-first" data-alt="professional maintenance worker repairing home electrical panel with high quality tools in a modern clean environment">
+<div class="z-10">
+<a href="home_page.html">
+<h1 class="font-headline-xl text-headline-xl mb-md">أوستاوي</h1>
+</a>
+<p class="font-body-lg text-body-lg max-w-md opacity-90">المنصة الرائدة لربطك بأفضل الفنيين والخبراء في منطقتك بكل سهولة وأمان.</p>
+</div>
+<div class="z-10 bg-white/10 backdrop-blur-md p-lg rounded-xl border border-white/20">
+<div class="flex items-center gap-md mb-sm">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-md text-label-md">فنيون معتمدون</span>
+</div>
+<p class="font-body-sm text-body-sm opacity-80">نضمن لك الجودة والاحترافية من خلال عملية فحص دقيقة لجميع مزودي الخدمة المنضمين إلينا.</p>
+</div>
+</div>
+<!-- Form Section -->
+<div class="flex flex-col items-center justify-center p-gutter md:p-2xl bg-surface-container-lowest">
+<div class="w-full max-w-md">
+<!-- Mobile Header -->
+<div class="md:hidden text-center mb-xl">
+<h1 class="font-headline-xl text-headline-xl text-primary">أوستاوي</h1>
+</div>
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-base">تسجيل الدخول</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">مرحباً بك مجدداً، ابدأ رحلتك معنا الآن.</p>
+</div>
+<!-- Role Selection Toggle -->
+<div class="grid grid-cols-2 gap-sm p-base bg-surface-container rounded-xl mb-xl">
+<button class="flex items-center justify-center gap-sm py-md px-lg rounded-lg bg-white shadow-sm border border-slate-100 text-primary transition-all">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md">عميل</span>
+</button>
+<button class="flex items-center justify-center gap-sm py-md px-lg rounded-lg text-on-surface-variant hover:bg-white/50 transition-all">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+<span class="font-label-md text-label-md">فني/مزود خدمة</span>
+</button>
+</div>
+<!-- Main Form -->
+<form class="space-y-lg">
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-background block px-base">البريد الإلكتروني أو رقم الهاتف</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pr-12 pl-md py-lg rounded-xl border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-white transition-all font-body-md text-body-md" placeholder="example@ostaway.com" type="text"/>
+</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-md text-label-md text-on-background block px-base">كلمة المرور</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute right-md top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pr-12 pl-md py-lg rounded-xl border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary bg-white transition-all font-body-md text-body-md" placeholder="••••••••" type="password"/>
+<button class="absolute left-md top-1/2 -translate-y-1/2 text-outline hover:text-primary" type="button">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-primary transition-colors">تذكرني</span>
+</label>
+<a class="font-label-sm text-label-sm text-secondary hover:underline underline-offset-4" href="#">نسيت كلمة المرور؟</a>
+</div>
+<button class="w-full py-lg bg-primary text-on-primary rounded-xl font-headline-md text-headline-md shadow-lg shadow-primary/10 hover:shadow-primary/20 active:scale-[0.98] transition-all" type="submit">
+                        تسجيل الدخول
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative my-2xl">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm">
+<span class="px-md bg-surface-container-lowest text-outline font-label-sm">أو تابع باستخدام</span>
+</div>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-md py-md border border-outline-variant rounded-xl hover:bg-surface-container transition-all">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIxNEHIFDPXLo71ZEWrPIES0oycXQiV04jiHchn1OTvZle4f7jlPdyhjheGycYJTfLY84iSLjAfNyX04kvmBM-lbkTuwYs0o1aOZeZy6HBGhZEV1Nr31SGeZbBjdBQb0v1RdIMT7GsbA6JmHbAFIc2CKIpk1WBixyn1ooDlHgeC8HC7RAuJlssAysbZ-DS66k_EkLdPGsgL2CuOwUeFCLNVZYjUAYi0YTq_B_WuAEJ9zbNjAMri_fA7BKPkxoe8Cr3QYPnYX2W_RH7"/>
+<span class="font-label-md text-label-md">Google</span>
+</button>
+<button class="flex items-center justify-center gap-md py-md border border-outline-variant rounded-xl hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span class="font-label-md text-label-md">Apple</span>
+</button>
+</div>
+<p class="mt-xl text-center font-body-sm text-body-sm text-on-surface-variant">
+                    ليس لديك حساب؟ 
+                    <a class="text-secondary font-label-md hover:underline underline-offset-4" href="#">سجل الآن مجاناً</a>
+</p>
+</div>
+</div>
+</div>
+<!-- Minimal Footer -->
+<footer class="w-full py-lg border-t border-outline-variant bg-white">
+<div class="max-w-7xl mx-auto px-gutter flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-label-sm text-label-sm text-outline">© 2024 أوستاوي. جميع الحقوق محفوظة.</p>
+<div class="flex gap-lg">
+<a class="font-label-sm text-label-sm text-outline hover:text-primary" href="#">الشروط والأحكام</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-primary" href="#">سياسة الخصوصية</a>
+<a class="font-label-sm text-label-sm text-outline hover:text-primary" href="#">تواصل معنا</a>
+</div>
+</div>
+</footer>
+</body></html>

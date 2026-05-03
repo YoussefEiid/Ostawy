@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#eff4ff",
+                        "secondary": "#9c4400",
+                        "outline": "#75777f",
+                        "primary-fixed-dim": "#b6c6f0",
+                        "on-secondary-container": "#5b2500",
+                        "on-primary-fixed": "#071b3b",
+                        "surface-container": "#e5eeff",
+                        "on-secondary-fixed": "#331200",
+                        "on-tertiary-container": "#909396",
+                        "primary": "#031636",
+                        "outline-variant": "#c5c6cf",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#d8e2ff",
+                        "tertiary": "#14181a",
+                        "surface-container-highest": "#d3e4fe",
+                        "secondary-fixed": "#ffdbca",
+                        "surface-bright": "#f8f9ff",
+                        "tertiary-fixed": "#e0e3e6",
+                        "on-surface-variant": "#44474e",
+                        "tertiary-container": "#292c2e",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed-variant": "#773200",
+                        "inverse-primary": "#b6c6f0",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed-dim": "#ffb68f",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#4e5e82",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "primary-container": "#1a2b4c",
+                        "on-primary-container": "#8293ba",
+                        "secondary-container": "#fd7613",
+                        "on-surface": "#0b1c30",
+                        "on-primary-fixed-variant": "#364669",
+                        "background": "#f8f9ff",
+                        "inverse-on-surface": "#eaf1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "xl": "32px",
+                        "2xl": "48px",
+                        "gutter": "16px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "margin-desktop": "32px",
+                        "lg": "24px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "label-md": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "body-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<main class="min-h-screen flex flex-col md:flex-row-reverse">
+<!-- Right Side: Dark Blue Hero (Identity & Brand) -->
+<section class="hidden md:flex w-1/2 relative overflow-hidden items-center justify-center p-xl bg-surface-variant">
+<!-- Background Decorative Elements -->
+<div class="absolute inset-0 opacity-10">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-white rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary-container rounded-full blur-[100px]"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<img alt="Ostawy Logo" class="w-64 h-auto mb-lg brightness-110" data-alt="New Ostawy logo featuring a map pin icon with an integrated wrench and house roof silhouette, symbolizing home maintenance and service locations." src="https://lh3.googleusercontent.com/aida/ADBb0ugO5DDbImtiGUcstP4XkknpX30GofIU5N3UCTplFKx8CWW30XujOjBu9CjzZPRrq8wIQgsnRM2YgI-3dPZcS3F--OD2BHhDrGhxcREqEiR12xivxxq6LConBUPtpTqm-7vXE5HuxMR9mzKjuU-2DjHA9Kpoc_ND1YKJiwIKIp8uQ2RJs3pjHBrXN8oB2qxL1QGh-x2Gcy_g2X3VIXNbOeQsx643UpkoGXuGoVbYPTaCcmK0vW3Wgz8os3npaqjtKy2kGaTVOCTpijc"/>
+<h2 class="font-headline-xl text-headline-xl mb-md text-on-surface">منصة أوستاوي</h2>
+<p class="font-body-lg text-body-lg max-w-sm text-on-surface-variant">
+                    وجهتك الأولى للوصول إلى أفضل الفنيين المعتمدين والخدمات المنزلية بكل سهولة وموثوقية.
+                </p>
+</div>
+<!-- Texture overlay -->
+<div class="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+</section>
+<!-- Left Side: Registration Form -->
+<section class="flex-1 flex items-center justify-center p-md md:p-2xl bg-white">
+<div class="w-full max-w-md">
+<!-- Header -->
+<header class="mb-xl text-right">
+<div class="md:hidden flex justify-center mb-lg">
+<img alt="Ostawy Logo" class="h-12 w-auto brightness-0" data-alt="Corporate logo for Ostawy professional services marketplace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKDXK8VQm13nuQuoOqVuGpTQgoDUObZ6FgyepFmht7aTPIKvLwaVQHBNdE81kDaZ8WeMcrCD3Qljy-rsYH3_OQyN8lJb9DXpBfiwq5y5Tfwhva9rs6xjfPi5TqDgNogtAtSx5ONQlX11eZ4-tS5tq9tlQmOSxKSfypAaw6odODmTBFKnD66VKQoyHQnpgNI_pBxhCSuC23_oQeGudO7NP0vEJO5QPlagRzy7U3UHhlAt4Id9xvdaJPwoR_YT0fgL2ePMgVC9nU0UiL"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-xs">إنشاء حساب جديد</h1>
+<p class="font-body-md text-body-md text-outline">انضم إلى مجتمع أوستاوي اليوم.</p>
+</header>
+<!-- Role Selection Tabs -->
+<div class="flex p-1 bg-surface-container-low rounded-xl mb-xl"><button class="flex-1 py-3 px-4 rounded-lg font-label-md text-label-md transition-all duration-200 bg-secondary-container text-on-secondary shadow-sm ring-1 ring-black/5">عميل</button><button class="flex-1 py-3 px-4 rounded-lg font-label-md text-label-md transition-all duration-200 text-outline hover:text-primary">فني / مزود خدمة</button></div>
+<!-- Registration Form -->
+<form action="#" class="space-y-lg">
+<!-- Full Name -->
+<div class="space-y-xs">
+<label class="block font-label-md text-label-md text-on-surface" for="name">الاسم الكامل</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-right font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" id="name" name="name" placeholder="أدخل اسمك الثلاثي" type="text"/>
+</div>
+</div>
+<!-- Email -->
+<div class="space-y-xs">
+<label class="block font-label-md text-label-md text-on-surface" for="email">البريد الإلكتروني</label>
+<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="email" name="email" placeholder="example@domain.com" type="email"/>
+</div>
+<!-- Phone Number -->
+<div class="space-y-xs">
+<label class="block font-label-md text-label-md text-on-surface" for="phone">رقم الهاتف</label>
+<div class="relative flex items-center">
+<span class="absolute left-4 font-body-md text-outline" dir="ltr">+966</span>
+<input class="w-full pl-16 pr-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="phone" name="phone" placeholder="5xxxxxxxx" type="tel"/>
+</div>
+</div>
+<!-- Password -->
+<div class="space-y-xs">
+<label class="block font-label-md text-label-md text-on-surface" for="password">كلمة المرور</label>
+<div class="relative">
+<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="password" name="password" placeholder="••••••••" type="password"/>
+<button class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="flex items-start gap-3">
+<div class="flex items-center h-5">
+<input class="w-5 h-5 rounded border-outline-variant text-secondary-container focus:ring-secondary-container" id="terms" type="checkbox"/>
+</div>
+<label class="font-body-sm text-body-sm text-outline" for="terms">
+                            أوافق على <a class="text-primary font-semibold hover:underline" href="#">الشروط والأحكام</a> و<a class="text-primary font-semibold hover:underline" href="#">سياسة الخصوصية</a>
+</label>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-primary-container text-white py-4 rounded-xl font-label-md text-label-md hover:bg-primary transition-all active:scale-[0.98] shadow-md" type="submit">
+                        إنشاء الحساب
+                    </button>
+</form>
+<!-- Divider -->
+<div class="relative my-xl">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant"></div>
+</div>
+<div class="relative flex justify-center text-label-sm text-label-sm">
+<span class="bg-white px-4 text-outline">أو تابع باستخدام</span>
+</div>
+</div>
+<!-- Social Login -->
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant bg-white hover:bg-surface-container-low transition-colors font-label-md text-label-md text-primary">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP8e65b0wj4f-H_vIAx7PAWWwzVZ4_GnbwrGDQaMR25pfh1caciX2lpRxa2mpDqAg6zftoo18TErJ4TnL9PIros8MACDBCiUlG81TUAXoe7ReRMtJe-iL4aV72vkNq3-D7ngTMBHPHDF-uu3niUgjGZN5iznhXs-VDRh7JOW6QS_o6wslBona5rvePov3OHjVxTYF-wWb9AD6SiwctJxmnwtE2CkoaAKhpCxM7AD4LT7kPRDxcGAtt5R2aaxU-cCR6JrBn323lroJZ"/>
+<span>جوجل</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant bg-white hover:bg-surface-container-low transition-colors font-label-md text-label-md text-primary">
+<span class="material-symbols-outlined" data-icon="apple" style="font-variation-settings: 'FILL' 1;">ios</span>
+<span>أبل</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="mt-xl text-center">
+<p class="font-body-md text-body-md text-outline">
+                        لديك حساب بالفعل؟
+                        <a class="text-primary font-bold hover:underline mr-1" href="/login">تسجيل الدخول</a>
+</p>
+</footer>
+</div>
+</section>
+</main>
+<!-- Shell Suppression applied: No Nav/FAB for focused Sign Up page -->
+</body></html>
