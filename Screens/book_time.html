@@ -109,6 +109,7 @@
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-surface min-h-screen">
 <!-- Top AppBar (JSON Driven) -->
@@ -305,4 +306,11 @@
 </nav>
 <!-- Spacer for Bottom Nav -->
 <div class="h-20"></div>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  Auth.requireAuth();
+  const user = Auth.currentUser(); if(user) document.querySelectorAll(".user-name").forEach(el=>el.textContent=user.name);
+});
+
+</script>
 </body></html>

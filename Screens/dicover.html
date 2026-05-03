@@ -115,6 +115,7 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         body { font-family: 'Noto Sans Arabic', sans-serif; }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background font-body-md text-on-background selection:bg-surface-variant overflow-hidden">
 <!-- TopNavBar -->
@@ -364,4 +365,24 @@
 <span class="text-[10px] font-bold uppercase tracking-widest mt-1">الرسائل</span>
 </button>
 </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // Make worker cards clickable
+  document.querySelectorAll('.worker-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => window.location.href = 'worker_profile.html');
+  });
+});
+</script>
+<script>
+document.querySelectorAll("article, .worker-card, [class*='rounded'][class*='border']").forEach(el => {
+  if(el.querySelector('img') && el.querySelector('[class*="star"]')) {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function(e) {
+      if(!e.target.closest('button') && !e.target.closest('a'))
+        window.location.href = 'worker_profile.html';
+    });
+  }
+});
+</script>
 </body></html>

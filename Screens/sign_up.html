@@ -1,224 +1,220 @@
 <!DOCTYPE html>
-
 <html dir="rtl" lang="ar"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>إنشاء حساب - أوستاوي</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style>
-        body {
-            font-family: 'Manrope', sans-serif;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="auth.js"></script>
 <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-low": "#eff4ff",
-                        "secondary": "#9c4400",
-                        "outline": "#75777f",
-                        "primary-fixed-dim": "#b6c6f0",
-                        "on-secondary-container": "#5b2500",
-                        "on-primary-fixed": "#071b3b",
-                        "surface-container": "#e5eeff",
-                        "on-secondary-fixed": "#331200",
-                        "on-tertiary-container": "#909396",
-                        "primary": "#031636",
-                        "outline-variant": "#c5c6cf",
-                        "on-secondary": "#ffffff",
-                        "on-error": "#ffffff",
-                        "error": "#ba1a1a",
-                        "primary-fixed": "#d8e2ff",
-                        "tertiary": "#14181a",
-                        "surface-container-highest": "#d3e4fe",
-                        "secondary-fixed": "#ffdbca",
-                        "surface-bright": "#f8f9ff",
-                        "tertiary-fixed": "#e0e3e6",
-                        "on-surface-variant": "#44474e",
-                        "tertiary-container": "#292c2e",
-                        "inverse-surface": "#213145",
-                        "on-secondary-fixed-variant": "#773200",
-                        "inverse-primary": "#b6c6f0",
-                        "surface-dim": "#cbdbf5",
-                        "secondary-fixed-dim": "#ffb68f",
-                        "on-tertiary-fixed": "#191c1e",
-                        "on-error-container": "#93000a",
-                        "surface-tint": "#4e5e82",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed-dim": "#c4c7ca",
-                        "on-tertiary": "#ffffff",
-                        "on-background": "#0b1c30",
-                        "error-container": "#ffdad6",
-                        "surface-container-lowest": "#ffffff",
-                        "surface": "#f8f9ff",
-                        "surface-variant": "#d3e4fe",
-                        "surface-container-high": "#dce9ff",
-                        "on-tertiary-fixed-variant": "#44474a",
-                        "primary-container": "#1a2b4c",
-                        "on-primary-container": "#8293ba",
-                        "secondary-container": "#fd7613",
-                        "on-surface": "#0b1c30",
-                        "on-primary-fixed-variant": "#364669",
-                        "background": "#f8f9ff",
-                        "inverse-on-surface": "#eaf1ff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "md": "16px",
-                        "xl": "32px",
-                        "2xl": "48px",
-                        "gutter": "16px",
-                        "sm": "8px",
-                        "margin-mobile": "16px",
-                        "xs": "4px",
-                        "margin-desktop": "32px",
-                        "lg": "24px",
-                        "base": "4px"
-                    },
-                    "fontFamily": {
-                        "label-sm": ["Manrope"],
-                        "headline-md": ["Manrope"],
-                        "headline-xl": ["Manrope"],
-                        "label-md": ["Manrope"],
-                        "body-md": ["Manrope"],
-                        "headline-lg": ["Manrope"],
-                        "body-lg": ["Manrope"],
-                        "body-sm": ["Manrope"]
-                    },
-                    "fontSize": {
-                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
-                        "headline-md": ["22px", {"lineHeight": "1.4", "fontWeight": "600"}],
-                        "headline-xl": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
-                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-lg": ["28px", {"lineHeight": "1.3", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
-                    }
-                },
-            },
-        }
-    </script>
+  tailwind.config = {
+    darkMode:"class",
+    theme:{ extend:{
+      colors:{
+        "primary":"#031636","primary-container":"#1a2b4c","on-primary":"#ffffff","on-primary-container":"#8293ba",
+        "secondary":"#9c4400","secondary-container":"#fd7613","on-secondary":"#ffffff","on-secondary-container":"#5b2500",
+        "surface":"#f8f9ff","surface-bright":"#f8f9ff","surface-container":"#e5eeff","surface-container-low":"#eff4ff",
+        "surface-container-lowest":"#ffffff","surface-container-high":"#dce9ff","surface-variant":"#d3e4fe",
+        "on-surface":"#0b1c30","on-surface-variant":"#44474e","outline":"#75777f","outline-variant":"#c5c6cf",
+        "error":"#ba1a1a","error-container":"#ffdad6","on-error":"#ffffff","on-error-container":"#93000a",
+        "background":"#f8f9ff","on-background":"#0b1c30"
+      },
+      borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
+      spacing:{"xs":"4px","sm":"8px","md":"16px","lg":"24px","xl":"32px","2xl":"48px","gutter":"16px"},
+    }}
+  }
+</script>
+<style>
+  body { font-family: 'Noto Sans Arabic', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
 </head>
 <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
 <main class="min-h-screen flex flex-col md:flex-row-reverse">
-<!-- Right Side: Dark Blue Hero (Identity & Brand) -->
-<section class="hidden md:flex w-1/2 relative overflow-hidden items-center justify-center p-xl bg-surface-variant">
-<!-- Background Decorative Elements -->
-<div class="absolute inset-0 opacity-10">
-<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-white rounded-full blur-[120px]"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-secondary-container rounded-full blur-[100px]"></div>
-</div>
-<div class="relative z-10 flex flex-col items-center text-center">
-<img alt="Ostawy Logo" class="w-64 h-auto mb-lg brightness-110" data-alt="New Ostawy logo featuring a map pin icon with an integrated wrench and house roof silhouette, symbolizing home maintenance and service locations." src="https://lh3.googleusercontent.com/aida/ADBb0ugO5DDbImtiGUcstP4XkknpX30GofIU5N3UCTplFKx8CWW30XujOjBu9CjzZPRrq8wIQgsnRM2YgI-3dPZcS3F--OD2BHhDrGhxcREqEiR12xivxxq6LConBUPtpTqm-7vXE5HuxMR9mzKjuU-2DjHA9Kpoc_ND1YKJiwIKIp8uQ2RJs3pjHBrXN8oB2qxL1QGh-x2Gcy_g2X3VIXNbOeQsx643UpkoGXuGoVbYPTaCcmK0vW3Wgz8os3npaqjtKy2kGaTVOCTpijc"/>
-<h2 class="font-headline-xl text-headline-xl mb-md text-on-surface">منصة أوستاوي</h2>
-<p class="font-body-lg text-body-lg max-w-sm text-on-surface-variant">
-                    وجهتك الأولى للوصول إلى أفضل الفنيين المعتمدين والخدمات المنزلية بكل سهولة وموثوقية.
-                </p>
-</div>
-<!-- Texture overlay -->
-<div class="absolute inset-0 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
+
+<!-- Hero Side -->
+<section class="hidden md:flex w-1/2 relative overflow-hidden items-center justify-center p-xl" style="background: linear-gradient(135deg, #031636 0%, #1a2b4c 50%, #0a2550 100%);">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-white rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-orange-500 rounded-full blur-[100px]"></div>
+  </div>
+  <div class="relative z-10 flex flex-col items-center text-center">
+    <div class="w-24 h-24 bg-orange-500 rounded-2xl flex items-center justify-center mb-lg shadow-2xl">
+      <span class="material-symbols-outlined text-white text-5xl" style="font-variation-settings:'FILL' 1;">handyman</span>
+    </div>
+    <h2 class="text-4xl font-black text-white mb-md">منصة أوستاوي</h2>
+    <p class="text-white/80 text-lg max-w-sm leading-relaxed">وجهتك الأولى للوصول إلى أفضل الفنيين المعتمدين والخدمات المنزلية بكل سهولة وموثوقية.</p>
+    <div class="mt-xl grid grid-cols-3 gap-md w-full max-w-xs">
+      <div class="bg-white/10 rounded-xl p-md text-center backdrop-blur-sm">
+        <p class="text-white font-black text-2xl">١٢K+</p>
+        <p class="text-white/70 text-xs mt-1">فني مسجّل</p>
+      </div>
+      <div class="bg-white/10 rounded-xl p-md text-center backdrop-blur-sm">
+        <p class="text-white font-black text-2xl">٤.٩</p>
+        <p class="text-white/70 text-xs mt-1">تقييم متوسط</p>
+      </div>
+      <div class="bg-white/10 rounded-xl p-md text-center backdrop-blur-sm">
+        <p class="text-white font-black text-2xl">٥٠K</p>
+        <p class="text-white/70 text-xs mt-1">خدمة منجزة</p>
+      </div>
+    </div>
+  </div>
 </section>
-<!-- Left Side: Registration Form -->
+
+<!-- Form Side -->
 <section class="flex-1 flex items-center justify-center p-md md:p-2xl bg-white">
-<div class="w-full max-w-md">
-<!-- Header -->
-<header class="mb-xl text-right">
-<div class="md:hidden flex justify-center mb-lg">
-<img alt="Ostawy Logo" class="h-12 w-auto brightness-0" data-alt="Corporate logo for Ostawy professional services marketplace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKDXK8VQm13nuQuoOqVuGpTQgoDUObZ6FgyepFmht7aTPIKvLwaVQHBNdE81kDaZ8WeMcrCD3Qljy-rsYH3_OQyN8lJb9DXpBfiwq5y5Tfwhva9rs6xjfPi5TqDgNogtAtSx5ONQlX11eZ4-tS5tq9tlQmOSxKSfypAaw6odODmTBFKnD66VKQoyHQnpgNI_pBxhCSuC23_oQeGudO7NP0vEJO5QPlagRzy7U3UHhlAt4Id9xvdaJPwoR_YT0fgL2ePMgVC9nU0UiL"/>
-</div>
-<h1 class="font-headline-lg text-headline-lg text-primary mb-xs">إنشاء حساب جديد</h1>
-<p class="font-body-md text-body-md text-outline">انضم إلى مجتمع أوستاوي اليوم.</p>
-</header>
-<!-- Role Selection Tabs -->
-<div class="flex p-1 bg-surface-container-low rounded-xl mb-xl"><button class="flex-1 py-3 px-4 rounded-lg font-label-md text-label-md transition-all duration-200 bg-secondary-container text-on-secondary shadow-sm ring-1 ring-black/5">عميل</button><button class="flex-1 py-3 px-4 rounded-lg font-label-md text-label-md transition-all duration-200 text-outline hover:text-primary">فني / مزود خدمة</button></div>
-<!-- Registration Form -->
-<form action="#" class="space-y-lg">
-<!-- Full Name -->
-<div class="space-y-xs">
-<label class="block font-label-md text-label-md text-on-surface" for="name">الاسم الكامل</label>
-<div class="relative">
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-right font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" id="name" name="name" placeholder="أدخل اسمك الثلاثي" type="text"/>
-</div>
-</div>
-<!-- Email -->
-<div class="space-y-xs">
-<label class="block font-label-md text-label-md text-on-surface" for="email">البريد الإلكتروني</label>
-<input class="w-full px-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="email" name="email" placeholder="example@domain.com" type="email"/>
-</div>
-<!-- Phone Number -->
-<div class="space-y-xs">
-<label class="block font-label-md text-label-md text-on-surface" for="phone">رقم الهاتف</label>
-<div class="relative flex items-center">
-<span class="absolute left-4 font-body-md text-outline" dir="ltr">+966</span>
-<input class="w-full pl-16 pr-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="phone" name="phone" placeholder="5xxxxxxxx" type="tel"/>
-</div>
-</div>
-<!-- Password -->
-<div class="space-y-xs">
-<label class="block font-label-md text-label-md text-on-surface" for="password">كلمة المرور</label>
-<div class="relative">
-<input class="w-full pl-12 pr-4 py-3 rounded-xl border border-outline-variant bg-surface-bright focus:ring-1 transition-all text-left font-body-md text-body-md outline-none focus:border-secondary-container focus:ring-secondary-container" dir="ltr" id="password" name="password" placeholder="••••••••" type="password"/>
-<button class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-outline hover:text-primary transition-colors" type="button">
-<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
-</button>
-</div>
-</div>
-<!-- Terms Checkbox -->
-<div class="flex items-start gap-3">
-<div class="flex items-center h-5">
-<input class="w-5 h-5 rounded border-outline-variant text-secondary-container focus:ring-secondary-container" id="terms" type="checkbox"/>
-</div>
-<label class="font-body-sm text-body-sm text-outline" for="terms">
-                            أوافق على <a class="text-primary font-semibold hover:underline" href="#">الشروط والأحكام</a> و<a class="text-primary font-semibold hover:underline" href="#">سياسة الخصوصية</a>
-</label>
-</div>
-<!-- Submit Button -->
-<button class="w-full bg-primary-container text-white py-4 rounded-xl font-label-md text-label-md hover:bg-primary transition-all active:scale-[0.98] shadow-md" type="submit">
-                        إنشاء الحساب
-                    </button>
-</form>
-<!-- Divider -->
-<div class="relative my-xl">
-<div class="absolute inset-0 flex items-center">
-<div class="w-full border-t border-outline-variant"></div>
-</div>
-<div class="relative flex justify-center text-label-sm text-label-sm">
-<span class="bg-white px-4 text-outline">أو تابع باستخدام</span>
-</div>
-</div>
-<!-- Social Login -->
-<div class="grid grid-cols-2 gap-md">
-<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant bg-white hover:bg-surface-container-low transition-colors font-label-md text-label-md text-primary">
-<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBP8e65b0wj4f-H_vIAx7PAWWwzVZ4_GnbwrGDQaMR25pfh1caciX2lpRxa2mpDqAg6zftoo18TErJ4TnL9PIros8MACDBCiUlG81TUAXoe7ReRMtJe-iL4aV72vkNq3-D7ngTMBHPHDF-uu3niUgjGZN5iznhXs-VDRh7JOW6QS_o6wslBona5rvePov3OHjVxTYF-wWb9AD6SiwctJxmnwtE2CkoaAKhpCxM7AD4LT7kPRDxcGAtt5R2aaxU-cCR6JrBn323lroJZ"/>
-<span>جوجل</span>
-</button>
-<button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-outline-variant bg-white hover:bg-surface-container-low transition-colors font-label-md text-label-md text-primary">
-<span class="material-symbols-outlined" data-icon="apple" style="font-variation-settings: 'FILL' 1;">ios</span>
-<span>أبل</span>
-</button>
-</div>
-<!-- Footer -->
-<footer class="mt-xl text-center">
-<p class="font-body-md text-body-md text-outline">
-                        لديك حساب بالفعل؟
-                        <a class="text-primary font-bold hover:underline mr-1" href="/login">تسجيل الدخول</a>
-</p>
-</footer>
-</div>
+  <div class="w-full max-w-md">
+    <header class="mb-xl text-right">
+      <div class="md:hidden flex justify-center mb-lg">
+        <div class="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center">
+          <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings:'FILL' 1;">handyman</span>
+        </div>
+      </div>
+      <h1 class="text-3xl font-black text-primary mb-xs">إنشاء حساب جديد</h1>
+      <p class="text-outline text-base">انضم إلى مجتمع أوستاوي اليوم.</p>
+    </header>
+
+    <!-- Role Tabs -->
+    <div class="flex p-1 bg-gray-100 rounded-xl mb-xl gap-1">
+      <button onclick="setRole('client')" id="tab-client" class="flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 bg-orange-500 text-white shadow-sm">
+        <span class="material-symbols-outlined text-sm align-middle ml-1" style="font-variation-settings:'FILL' 1;">person</span>
+        عميل
+      </button>
+      <button onclick="setRole('worker')" id="tab-worker" class="flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 text-gray-500 hover:text-primary">
+        <span class="material-symbols-outlined text-sm align-middle ml-1">engineering</span>
+        فني / مزود خدمة
+      </button>
+    </div>
+
+    <!-- Error -->
+    <div id="errorMsg" class="hidden mb-md p-3 bg-red-50 border border-red-200 text-red-700 rounded-xl text-sm font-semibold"></div>
+
+    <!-- Form -->
+    <div class="space-y-lg">
+      <div class="space-y-xs">
+        <label class="block text-sm font-bold text-on-surface" for="name">الاسم الكامل</label>
+        <input class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-right text-base outline-none" id="name" placeholder="أدخل اسمك الثلاثي" type="text"/>
+      </div>
+      <div class="space-y-xs">
+        <label class="block text-sm font-bold text-on-surface" for="email">البريد الإلكتروني</label>
+        <input class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-left text-base outline-none" dir="ltr" id="email" placeholder="example@domain.com" type="email"/>
+      </div>
+      <div class="space-y-xs">
+        <label class="block text-sm font-bold text-on-surface" for="phone">رقم الهاتف</label>
+        <div class="relative flex items-center">
+          <span class="absolute left-4 text-gray-400 text-base font-mono" dir="ltr">+966</span>
+          <input class="w-full pl-16 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-left text-base outline-none" dir="ltr" id="phone" placeholder="5xxxxxxxx" type="tel"/>
+        </div>
+      </div>
+      <div class="space-y-xs">
+        <label class="block text-sm font-bold text-on-surface" for="password">كلمة المرور</label>
+        <div class="relative">
+          <input class="w-full pl-12 pr-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:ring-2 focus:ring-orange-400 focus:border-orange-400 transition-all text-left text-base outline-none" dir="ltr" id="password" placeholder="••••••••" type="password"/>
+          <button onclick="togglePass()" class="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-primary transition-colors" type="button">
+            <span class="material-symbols-outlined" id="passIcon">visibility</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-start gap-3">
+        <input class="w-5 h-5 rounded border-gray-300 text-orange-500 focus:ring-orange-400 mt-0.5 accent-orange-500" id="terms" type="checkbox"/>
+        <label class="text-sm text-gray-500" for="terms">
+          أوافق على <a class="text-primary font-bold hover:underline" href="#">الشروط والأحكام</a> و<a class="text-primary font-bold hover:underline" href="#">سياسة الخصوصية</a>
+        </label>
+      </div>
+      <button onclick="doRegister()" id="submitBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-base hover:bg-primary-container transition-all active:scale-[0.98] shadow-md flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-xl">person_add</span>
+        إنشاء الحساب
+      </button>
+    </div>
+
+    <!-- Divider -->
+    <div class="relative my-xl">
+      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-gray-200"></div></div>
+      <div class="relative flex justify-center"><span class="bg-white px-4 text-gray-400 text-sm">أو تابع باستخدام</span></div>
+    </div>
+
+    <!-- Social -->
+    <div class="grid grid-cols-2 gap-md">
+      <button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 transition-colors font-bold text-sm text-primary">
+        <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+        جوجل
+      </button>
+      <button class="flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-gray-200 bg-white hover:bg-gray-50 transition-colors font-bold text-sm text-primary">
+        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">ios</span>
+        أبل
+      </button>
+    </div>
+
+    <footer class="mt-xl text-center">
+      <p class="text-gray-500 text-base">لديك حساب بالفعل؟ <a class="text-primary font-black hover:underline mr-1" href="sign_in.html">تسجيل الدخول</a></p>
+    </footer>
+  </div>
 </section>
 </main>
-<!-- Shell Suppression applied: No Nav/FAB for focused Sign Up page -->
+
+<script>
+  let currentRole = 'client';
+
+  function setRole(role) {
+    currentRole = role;
+    const tc = document.getElementById('tab-client');
+    const tw = document.getElementById('tab-worker');
+    if (role === 'client') {
+      tc.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 bg-orange-500 text-white shadow-sm';
+      tw.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 text-gray-500 hover:text-primary';
+    } else {
+      tw.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 bg-orange-500 text-white shadow-sm';
+      tc.className = 'flex-1 py-3 px-4 rounded-lg text-sm font-bold transition-all duration-200 text-gray-500 hover:text-primary';
+    }
+  }
+
+  function togglePass() {
+    const p = document.getElementById('password');
+    const i = document.getElementById('passIcon');
+    p.type = p.type === 'password' ? 'text' : 'password';
+    i.textContent = p.type === 'password' ? 'visibility' : 'visibility_off';
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('errorMsg');
+    el.textContent = msg;
+    el.classList.remove('hidden');
+    setTimeout(() => el.classList.add('hidden'), 4000);
+  }
+
+  function doRegister() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('password').value;
+    const terms = document.getElementById('terms').checked;
+
+    if (!name || !email || !phone || !password) return showError('يرجى ملء جميع الحقول');
+    if (!terms) return showError('يجب الموافقة على الشروط والأحكام');
+    if (password.length < 6) return showError('كلمة المرور يجب أن تكون 6 أحرف على الأقل');
+
+    const btn = document.getElementById('submitBtn');
+    btn.textContent = 'جاري إنشاء الحساب...';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      const result = Auth.register(name, email, phone, password, currentRole);
+      if (!result.ok) {
+        btn.innerHTML = '<span class="material-symbols-outlined text-xl">person_add</span> إنشاء الحساب';
+        btn.disabled = false;
+        return showError(result.msg);
+      }
+      localStorage.setItem('ostawy_current_user', JSON.stringify(result.user));
+      window.location.href = currentRole === 'worker' ? 'worker_dashbord.html' : 'home_page.html';
+    }, 800);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const user = Auth.currentUser();
+    if (user) window.location.href = user.role === 'worker' ? 'worker_dashbord.html' : 'home_page.html';
+  });
+
+  document.addEventListener('keydown', e => { if(e.key === 'Enter') doRegister(); });
+</script>
 </body></html>

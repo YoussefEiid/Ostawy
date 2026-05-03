@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>خريطة الفنيين - أوستاوي</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="auth.js"></script>
+<style>
+  body { font-family: 'Noto Sans Arabic', sans-serif; margin: 0; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  #map { height: calc(100vh - 64px - 64px); width: 100%; }
+  .worker-marker { background: #fd7613; border: 3px solid white; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .user-marker { background: #031636; border: 3px solid white; border-radius: 50%; box-shadow: 0 2px 12px rgba(3,22,54,0.4); }
+  .worker-card-map { transition: all 0.2s; }
+  .worker-card-map:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+  @media(min-width: 768px) { #map { height: calc(100vh - 64px); } }
+  .leaflet-popup-content-wrapper { border-radius: 12px !important; box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important; }
+  .leaflet-popup-content { margin: 0 !important; padding: 0 !important; font-family: 'Noto Sans Arabic', sans-serif !important; }
+</style>
+</head>
+<body class="bg-gray-50">
+
+<!-- Top Nav -->
+<header class="sticky top-0 z-50 flex justify-between items-center w-full px-4 md:px-8 h-16 bg-white shadow-sm border-b border-gray-100">
+  <div class="flex items-center gap-3">
+    <button onclick="history.back()" class="p-2 rounded-xl hover:bg-gray-100 transition-colors">
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </button>
+    <h1 class="font-black text-xl text-slate-900">خريطة الفنيين</h1>
+  </div>
+  <div class="flex items-center gap-2">
+    <div class="relative">
+      <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg">search</span>
+      <input id="searchInput" type="text" placeholder="ابحث عن خدمة..." class="w-48 md:w-64 pr-10 pl-4 py-2 rounded-xl border border-gray-200 bg-gray-50 text-sm outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-400 transition-all"/>
+    </div>
+    <button onclick="locateUser()" class="p-2.5 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-colors" title="موقعي">
+      <span class="material-symbols-outlined text-xl">my_location</span>
+    </button>
+  </div>
+</header>
+
+<div class="flex flex-col md:flex-row h-full" style="height: calc(100vh - 64px - 64px); overflow: hidden;">
+  <!-- Map -->
+  <div class="flex-1 relative">
+    <div id="map"></div>
+
+    <!-- Filter Pills -->
+    <div class="absolute top-3 right-3 z-10 flex flex-wrap gap-2">
+      <button onclick="filterWorkers('all')" id="filter-all" class="px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border-2 border-orange-500 text-orange-600 transition-all">الكل</button>
+      <button onclick="filterWorkers('plumbing')" id="filter-plumbing" class="px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border border-gray-200 text-gray-600 hover:border-orange-400 transition-all">🔧 سباكة</button>
+      <button onclick="filterWorkers('electric')" id="filter-electric" class="px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border border-gray-200 text-gray-600 hover:border-orange-400 transition-all">⚡ كهرباء</button>
+      <button onclick="filterWorkers('ac')" id="filter-ac" class="px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border border-gray-200 text-gray-600 hover:border-orange-400 transition-all">❄️ تكييف</button>
+      <button onclick="filterWorkers('paint')" id="filter-paint" class="px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border border-gray-200 text-gray-600 hover:border-orange-400 transition-all">🎨 دهانات</button>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="absolute bottom-3 left-3 right-3 md:left-auto md:right-3 md:w-64 z-10 bg-white/95 backdrop-blur-sm rounded-2xl p-3 shadow-lg border border-gray-100">
+      <p class="text-xs text-gray-500 mb-1">الفنيون المتاحون قريبًا</p>
+      <div class="flex items-center justify-between">
+        <span class="text-2xl font-black text-slate-900" id="workerCount">٨</span>
+        <div class="flex items-center gap-1">
+          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span class="text-xs text-green-600 font-semibold">متاح الآن</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side Panel (desktop) -->
+  <div class="hidden md:flex flex-col w-80 bg-white border-r border-gray-100 overflow-y-auto" id="sidePanel">
+    <div class="p-4 border-b border-gray-100">
+      <h2 class="font-bold text-slate-900">الفنيون القريبون</h2>
+      <p class="text-xs text-gray-500 mt-0.5">انقر على الفني لعرض تفاصيله</p>
+    </div>
+    <div id="workerList" class="p-3 space-y-3"></div>
+  </div>
+</div>
+
+<!-- Bottom Nav (mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-16 bg-white shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-gray-100">
+  <a href="home_page.html" class="flex flex-col items-center justify-center text-gray-400">
+    <span class="material-symbols-outlined">home</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">الرئيسية</span>
+  </a>
+  <a href="dicover.html" class="flex flex-col items-center justify-center text-gray-400">
+    <span class="material-symbols-outlined">search</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">بحث</span>
+  </a>
+  <a href="map.html" class="flex flex-col items-center justify-center text-orange-500">
+    <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">map</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">الخريطة</span>
+  </a>
+  <a href="my_orders.html" class="flex flex-col items-center justify-center text-gray-400">
+    <span class="material-symbols-outlined">calendar_today</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">حجوزاتي</span>
+  </a>
+  <a href="chat.html" class="flex flex-col items-center justify-center text-gray-400">
+    <span class="material-symbols-outlined">chat_bubble</span>
+    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">رسائل</span>
+  </a>
+</nav>
+
+<script>
+// Sample workers data with Cairo coordinates
+const workers = [
+  { id:1, name:'أحمد محمد', specialty:'سباكة', category:'plumbing', rating:4.9, reviews:128, price:80, lat:30.0444, lng:31.2357, available:true, avatar:'أ' },
+  { id:2, name:'محمود خالد', specialty:'كهرباء', category:'electric', rating:4.8, reviews:97, price:100, lat:30.0600, lng:31.2600, available:true, avatar:'م' },
+  { id:3, name:'سامر علي', specialty:'تكييف وتبريد', category:'ac', rating:4.7, reviews:64, price:150, lat:30.0350, lng:31.2200, available:true, avatar:'س' },
+  { id:4, name:'يوسف حسن', specialty:'دهانات', category:'paint', rating:4.9, reviews:211, price:70, lat:30.0700, lng:31.2800, available:true, avatar:'ي' },
+  { id:5, name:'عمر إبراهيم', specialty:'سباكة', category:'plumbing', rating:4.6, reviews:43, price:90, lat:30.0280, lng:31.2450, available:false, avatar:'ع' },
+  { id:6, name:'طارق فاروق', specialty:'كهرباء', category:'electric', rating:5.0, reviews:187, price:120, lat:30.0550, lng:31.2100, available:true, avatar:'ط' },
+  { id:7, name:'كريم منصور', specialty:'تكييف وتبريد', category:'ac', rating:4.8, reviews:76, price:140, lat:30.0420, lng:31.2650, available:true, avatar:'ك' },
+  { id:8, name:'أيمن سعيد', specialty:'دهانات', category:'paint', rating:4.7, reviews:52, price:65, lat:30.0480, lng:31.2300, available:true, avatar:'ا' },
+];
+
+let map, userMarker, workerMarkers = [], currentFilter = 'all';
+
+// Initialize map centered on Cairo
+map = L.map('map', { zoomControl: false }).setView([30.0444, 31.2357], 13);
+
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 19
+}).addTo(map);
+
+function createWorkerIcon(worker) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      background: ${worker.available ? '#fd7613' : '#94a3b8'};
+      border: 3px solid white;
+      border-radius: 50%;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Noto Sans Arabic', sans-serif;
+      font-weight: 900; font-size: 16px; color: white;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+      cursor: pointer;
+      transition: transform 0.2s;
+    ">${worker.avatar}</div>`,
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
+    popupAnchor: [0, -24]
+  });
+}
+
+function createUserIcon() {
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      background: #031636;
+      border: 4px solid white;
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      box-shadow: 0 0 0 4px rgba(3,22,54,0.2), 0 3px 10px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [20, 20],
+    iconAnchor: [10, 10]
+  });
+}
+
+function renderWorkers(filter) {
+  // Clear existing markers
+  workerMarkers.forEach(m => map.removeLayer(m));
+  workerMarkers = [];
+  
+  const list = document.getElementById('workerList');
+  list.innerHTML = '';
+
+  const filtered = filter === 'all' ? workers : workers.filter(w => w.category === filter);
+  document.getElementById('workerCount').textContent = filtered.filter(w => w.available).length.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+
+  filtered.forEach(worker => {
+    // Add map marker
+    const marker = L.marker([worker.lat, worker.lng], { icon: createWorkerIcon(worker) });
+    marker.bindPopup(`
+      <div style="min-width:220px; padding:16px; direction:rtl; font-family:'Noto Sans Arabic',sans-serif;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+          <div style="width:48px;height:48px;background:${worker.available?'#fd7613':'#94a3b8'};border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:20px;">${worker.avatar}</div>
+          <div>
+            <p style="font-weight:800;font-size:16px;margin:0;color:#0f172a;">${worker.name}</p>
+            <p style="font-size:13px;color:#64748b;margin:2px 0 0;">${worker.specialty}</p>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:4px;">
+            <span style="color:#fb923c;font-size:14px;">★</span>
+            <span style="font-weight:700;font-size:14px;">${worker.rating}</span>
+            <span style="color:#94a3b8;font-size:12px;">(${worker.reviews})</span>
+          </div>
+          <span style="color:${worker.available?'#16a34a':'#dc2626'};font-size:12px;font-weight:700;background:${worker.available?'#f0fdf4':'#fef2f2'};padding:4px 10px;border-radius:999px;">${worker.available?'متاح الآن':'غير متاح'}</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <span style="font-size:13px;color:#64748b;">يبدأ من</span>
+          <span style="font-weight:900;font-size:18px;color:#031636;">${worker.price} ر.س</span>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <a href="book_time.html" style="flex:1;background:#fd7613;color:white;border:none;padding:10px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;text-decoration:none;display:block;">احجز الآن</a>
+          <a href="worker_profile.html" style="flex:1;background:#f1f5f9;color:#031636;border:none;padding:10px;border-radius:10px;font-weight:700;font-size:13px;text-align:center;text-decoration:none;display:block;">الملف</a>
+        </div>
+      </div>
+    `, { maxWidth: 280 });
+
+    marker.addTo(map);
+    workerMarkers.push(marker);
+
+    // Add to side list
+    const card = document.createElement('div');
+    card.className = 'worker-card-map bg-white rounded-xl p-3 border border-gray-100 cursor-pointer shadow-sm hover:shadow-md';
+    card.innerHTML = `
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-black text-lg flex-shrink-0" style="background:${worker.available?'#fd7613':'#94a3b8'}">${worker.avatar}</div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center justify-between">
+            <p class="font-bold text-slate-900 text-sm">${worker.name}</p>
+            <span class="text-xs font-bold ${worker.available?'text-green-600':'text-gray-400'}">${worker.available?'●&nbsp;متاح':'○&nbsp;مشغول'}</span>
+          </div>
+          <p class="text-xs text-gray-500">${worker.specialty}</p>
+          <div class="flex items-center justify-between mt-1">
+            <div class="flex items-center gap-1 text-xs">
+              <span class="text-orange-400">★</span>
+              <span class="font-bold">${worker.rating}</span>
+              <span class="text-gray-400">(${worker.reviews})</span>
+            </div>
+            <span class="font-black text-primary text-sm">${worker.price} ر.س</span>
+          </div>
+        </div>
+      </div>
+    `;
+    card.addEventListener('click', () => {
+      map.flyTo([worker.lat, worker.lng], 16, { animate: true, duration: 1 });
+      marker.openPopup();
+    });
+    list.appendChild(card);
+  });
+}
+
+function filterWorkers(category) {
+  currentFilter = category;
+  document.querySelectorAll('[id^="filter-"]').forEach(btn => {
+    btn.className = 'px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border border-gray-200 text-gray-600 hover:border-orange-400 transition-all';
+  });
+  document.getElementById(`filter-${category}`).className = 'px-3 py-1.5 bg-white rounded-full text-xs font-bold shadow-md border-2 border-orange-500 text-orange-600 transition-all';
+  renderWorkers(category);
+}
+
+function locateUser() {
+  if (!navigator.geolocation) return alert('المتصفح لا يدعم تحديد الموقع');
+  navigator.geolocation.getCurrentPosition(pos => {
+    const { latitude, longitude } = pos.coords;
+    if (userMarker) map.removeLayer(userMarker);
+    userMarker = L.marker([latitude, longitude], { icon: createUserIcon() }).addTo(map);
+    userMarker.bindPopup('<p style="font-family:Noto Sans Arabic;font-weight:700;padding:8px;">📍 موقعك الحالي</p>').openPopup();
+    map.flyTo([latitude, longitude], 15, { animate: true, duration: 1.5 });
+  }, err => {
+    // Fallback to Cairo center
+    map.flyTo([30.0444, 31.2357], 13);
+  });
+}
+
+// Search filter
+document.getElementById('searchInput').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('#workerList > div').forEach((card, i) => {
+    const worker = workers[i];
+    const match = !q || worker.name.includes(q) || worker.specialty.includes(q);
+    card.style.display = match ? '' : 'none';
+  });
+});
+
+// Init
+renderWorkers('all');
+
+// Try to get user location on load
+locateUser();
+</script>
+</body></html>

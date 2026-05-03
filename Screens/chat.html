@@ -97,6 +97,7 @@
         .chat-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased h-screen flex flex-col">
 <!-- Top Navigation Header -->
@@ -327,4 +328,11 @@
 <span class="font-manrope text-[11px] font-semibold">حسابي</span>
 </div>
 </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  Auth.requireAuth();
+  const user = Auth.currentUser(); if(user) document.querySelectorAll(".user-name").forEach(el=>el.textContent=user.name);
+});
+
+</script>
 </body></html>

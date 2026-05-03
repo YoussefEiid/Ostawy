@@ -111,6 +111,7 @@
             font-family: 'Noto Sans Arabic', 'Manrope', sans-serif;
         }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md">
 <!-- TopNavBar -->
@@ -119,15 +120,10 @@
 <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-semibold tracking-tight">
 <a class="text-blue-900 dark:text-blue-400 border-b-2 border-blue-900 dark:border-blue-400 pb-1" href="#">ابحث عن محترفين</a>
 <a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">كيف يعمل</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">انضم كمحترف</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="sign_up.html">انضم كمحترف</a>
 </nav>
-<div class="flex items-center space-x-4 space-x-reverse">
-    <a href="sign_in.html">
-<button class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 transition-all active:opacity-80">تسجيل الدخول</button>
-    </a>
-    <a href="sign_up.html">
-<button class="px-6 py-2 bg-primary text-on-primary rounded-lg text-sm font-bold scale-95 active:opacity-80 transition-all">إنشاء حساب</button>
-</a>
+<div class="flex items-center space-x-4 space-x-reverse" id="authBtns">
+  <!-- Injected by JS -->
 </div>
 </header>
 <main>
@@ -461,7 +457,7 @@
 <h5 class="font-bold text-slate-900 dark:text-slate-100 mb-4">روابط سريعة</h5>
 <ul class="space-y-2">
 <li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-500 underline-offset-4" href="#">ابحث عن محترفين</a></li>
-<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-500 underline-offset-4" href="#">انضم كمحترف</a></li>
+<li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-500 underline-offset-4" href="sign_up.html">انضم كمحترف</a></li>
 <li><a class="text-slate-500 dark:text-slate-400 text-sm hover:underline decoration-blue-500 underline-offset-4" href="#">كيف يعمل</a></li>
 </ul>
 </div>
@@ -494,21 +490,62 @@
 </footer>
 <!-- BottomNavBar (Mobile Only) -->
 <nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 h-16 pb-safe bg-white dark:bg-slate-900 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-100 dark:border-slate-800 rounded-t-2xl">
-<a class="flex flex-col items-center justify-center text-blue-900 dark:text-blue-400 scale-110" href="#">
-<span class="material-symbols-outlined">home</span>
+<a class="flex flex-col items-center justify-center text-blue-900 dark:text-blue-400 scale-110" href="home_page.html">
+<span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">home</span>
 <span class="text-[10px] font-bold uppercase tracking-widest">الرئيسية</span>
 </a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="dicover.html">
 <span class="material-symbols-outlined">search</span>
 <span class="text-[10px] font-bold uppercase tracking-widest">بحث</span>
 </a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
-<span class="material-symbols-outlined">calendar_today</span>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="my_orders.html"><span class="material-symbols-outlined">calendar_today</span>
 <span class="text-[10px] font-bold uppercase tracking-widest">حجوزاتي</span>
 </a>
-<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="#">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="map.html">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">الخريطة</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500" href="chat.html">
 <span class="material-symbols-outlined">chat_bubble</span>
 <span class="text-[10px] font-bold uppercase tracking-widest">رسائل</span>
 </a>
 </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const user = Auth.currentUser();
+  const btns = document.getElementById('authBtns');
+  if (user) {
+    btns.innerHTML = `
+      <a href="notifications.html" class="relative p-2 text-slate-500 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined">notifications</span>
+        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-orange-500 rounded-full text-white text-[9px] flex items-center justify-center font-bold">٣</span>
+      </a>
+      <div class="relative" id="userMenu">
+        <button onclick="document.getElementById('userDropdown').classList.toggle('hidden')" class="flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 transition-all">
+          <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">${user.name.charAt(0)}</div>
+          <span class="text-sm font-bold text-slate-900 hidden sm:block">${user.name.split(' ')[0]}</span>
+          <span class="material-symbols-outlined text-gray-400 text-sm">expand_more</span>
+        </button>
+        <div id="userDropdown" class="hidden absolute left-0 mt-2 w-48 bg-white rounded-xl shadow-xl border border-gray-100 z-50 overflow-hidden">
+          <a href="client_profile.html" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"><span class="material-symbols-outlined text-sm">person</span>ملفي الشخصي</a>
+          <a href="my_orders.html" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"><span class="material-symbols-outlined text-sm">assignment</span>طلباتي</a>
+          <a href="notifications.html" class="flex items-center gap-3 px-4 py-3 text-sm text-gray-700 hover:bg-gray-50"><span class="material-symbols-outlined text-sm">notifications</span>الإشعارات</a>
+          <hr class="border-gray-100"/>
+          <button onclick="Auth.logout()" class="w-full flex items-center gap-3 px-4 py-3 text-sm text-red-600 hover:bg-red-50 text-right"><span class="material-symbols-outlined text-sm">logout</span>تسجيل الخروج</button>
+        </div>
+      </div>
+    `;
+    document.addEventListener('click', e => {
+      if (!document.getElementById('userMenu')?.contains(e.target)) {
+        document.getElementById('userDropdown')?.classList.add('hidden');
+      }
+    });
+  } else {
+    btns.innerHTML = `
+      <a href="sign_in.html"><button class="px-4 py-2 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-all">تسجيل الدخول</button></a>
+      <a href="sign_up.html"><button class="px-6 py-2 bg-primary text-white rounded-lg text-sm font-bold hover:opacity-90 active:opacity-80 transition-all">إنشاء حساب</button></a>
+    `;
+  }
+});
+</script>
 </body></html>

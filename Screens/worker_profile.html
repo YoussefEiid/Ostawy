@@ -113,6 +113,7 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         body { font-family: 'Noto Sans Arabic', sans-serif; }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-background font-body-md min-h-screen">
 <!-- TopNavBar -->
@@ -405,4 +406,14 @@
 <span class="text-[10px] font-bold uppercase tracking-widest">الرسائل</span>
 </div>
 </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  Auth.requireAuth();
+  
+});
+
+function bookWorker(){ window.location.href='book_time.html'; }
+function openChat(){ window.location.href='chat.html'; }
+
+</script>
 </body></html>

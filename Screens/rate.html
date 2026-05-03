@@ -111,6 +111,7 @@
         .star-active { font-variation-settings: 'FILL' 1; color: #fd7613; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-background min-h-screen pb-24">
 <!-- Top Navigation -->
@@ -259,4 +260,11 @@
 <span class="text-[11px] font-medium">الملف الشخصي</span>
 </div>
 </nav>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  Auth.requireAuth();
+  const user = Auth.currentUser(); if(user) document.querySelectorAll(".user-name").forEach(el=>el.textContent=user.name);
+});
+
+</script>
 </body></html>

@@ -109,6 +109,7 @@
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
     </style>
+<script src="auth.js"></script>
 </head>
 <body class="bg-background text-on-surface">
 <!-- TopNavBar -->
@@ -237,7 +238,7 @@
 <h4 class="font-headline-md text-headline-md text-primary mb-2">إصلاح مكيف مركزي</h4>
 <button class="w-full bg-surface-container text-primary border border-primary-container/20 py-3 rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-surface-variant transition-all">
 <span class="material-symbols-outlined">chat_bubble</span> فتح المحادثة
-                    </button>
+                    "></button>
 </div>
 </div>
 <!-- Performance Stats -->
@@ -288,18 +289,9 @@
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
 <span class="text-[10px] font-bold uppercase tracking-widest mt-1">الرئيسية</span>
 </button>
-<button class="flex flex-col items-center justify-center text-slate-400">
-<span class="material-symbols-outlined">search</span>
-<span class="text-[10px] font-bold uppercase tracking-widest mt-1">بحث</span>
-</button>
-<button class="flex flex-col items-center justify-center text-slate-400">
-<span class="material-symbols-outlined">calendar_today</span>
-<span class="text-[10px] font-bold uppercase tracking-widest mt-1">حجوزات</span>
-</button>
-<button class="flex flex-col items-center justify-center text-slate-400">
-<span class="material-symbols-outlined">chat_bubble</span>
-<span class="text-[10px] font-bold uppercase tracking-widest mt-1">رسائل</span>
-</button>
+<a href="dicover.html" class="flex flex-col items-center justify-center text-slate-400"><span class="material-symbols-outlined">search</span><span class="text-[10px] font-bold uppercase tracking-widest mt-1">بحث</span></a>
+<a href="my_orders.html" class="flex flex-col items-center justify-center text-slate-400"><span class="material-symbols-outlined">calendar_today</span><span class="text-[10px] font-bold uppercase tracking-widest mt-1">حجوزات</span></a>
+<a href="chat.html" class="flex flex-col items-center justify-center text-slate-400"><span class="material-symbols-outlined">chat_bubble</span><span class="text-[10px] font-bold uppercase tracking-widest mt-1">رسائل</span></a>
 </nav>
 <!-- Desktop Footer -->
 <footer class="hidden md:block bg-slate-50 border-t border-slate-200 mt-2xl">
@@ -336,4 +328,12 @@
 <p class="text-sm text-slate-400 text-center">© 2024 أوستاوي ماركتبليس. جميع الحقوق محفوظة.</p>
 </div>
 </footer>
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const user = Auth.requireRole('worker');
+  if (!user) return;
+  // Update worker name in header
+  document.querySelectorAll('.worker-name').forEach(el => el.textContent = user.name);
+});
+</script>
 </body></html>
